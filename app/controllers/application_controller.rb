@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def greeting
-    render text: "TGIF"
+    render text: "Charles is a thespian"
   end
 end
