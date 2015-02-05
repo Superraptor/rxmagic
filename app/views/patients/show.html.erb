@@ -1,13 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Ptid:</strong>
+  <%= @patient.ptID %>
+</p>
+
+<p>
   <strong>Firstname:</strong>
-  <%= @patient.firstName %>
+  <%= @patient.firstname %>
 </p>
 
 <p>
   <strong>Lastname:</strong>
-  <%= @patient.lastName %>
+  <%= @patient.lastname %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @patient.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @patient.dob %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @patient.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @patient.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @patient.zip %>
 </p>
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |

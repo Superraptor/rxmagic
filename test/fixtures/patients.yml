@@ -1,9 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  firstName: MyString
-  lastName: MyString
+  ptID: 1
+  firstname: MyString
+  lastname: MyString
+  gender: MyString
+  dob: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
 
 two:
-  firstName: MyString
-  lastName: MyString
+  ptID: 1
+  firstname: MyString
+  lastname: MyString
+  gender: MyString
+  dob: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
