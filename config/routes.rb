@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :applications
+
+  resources :pharm_manufacturers
+
+  resources :medications_rx_norms
+
+  resources :inventories
+
+  resources :dispensed_meds
+
+  resources :providers
+
+  resources :prescriptions
+
   get 'static_pages/home'
 
   resources :patients

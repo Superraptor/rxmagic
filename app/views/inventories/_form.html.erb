@@ -1,0 +1,45 @@
+<%= form_for(@inventory) do |f| %>
+  <% if @inventory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+      <ul>
+      <% @inventory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :invID %><br>
+    <%= f.number_field :invID %>
+  </div>
+  <div class="field">
+    <%= f.label :lot_no %><br>
+    <%= f.text_field :lot_no %>
+  </div>
+  <div class="field">
+    <%= f.label :exp_date %><br>
+    <%= f.date_select :exp_date %>
+  </div>
+  <div class="field">
+    <%= f.label :current_stock %><br>
+    <%= f.text_field :current_stock %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :date_to_reorder %><br>
+    <%= f.text_field :date_to_reorder %>
+  </div>
+  <div class="field">
+    <%= f.label :medications_rxnorm_ndc %><br>
+    <%= f.text_field :medications_rxnorm_ndc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

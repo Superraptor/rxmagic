@@ -1,0 +1,37 @@
+<%= form_for(@application) do |f| %>
+  <% if @application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h2>
+
+      <ul>
+      <% @application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :patients_ptID %><br>
+    <%= f.number_field :patients_ptID %>
+  </div>
+  <div class="field">
+    <%= f.label :pharm_manufacturers_phID %><br>
+    <%= f.number_field :pharm_manufacturers_phID %>
+  </div>
+  <div class="field">
+    <%= f.label :medications_rxnorm_ndc %><br>
+    <%= f.text_field :medications_rxnorm_ndc %>
+  </div>
+  <div class="field">
+    <%= f.label :app_status %><br>
+    <%= f.text_field :app_status %>
+  </div>
+  <div class="field">
+    <%= f.label :date_init %><br>
+    <%= f.date_select :date_init %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

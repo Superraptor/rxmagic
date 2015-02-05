@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dis date:</strong>
+  <%= @dispensed_med.dis_date %>
+</p>
+
+<p>
+  <strong>Patients ptid:</strong>
+  <%= @dispensed_med.patients_ptID %>
+</p>
+
+<p>
+  <strong>Inventory invid:</strong>
+  <%= @dispensed_med.inventory_invID %>
+</p>
+
+<%= link_to 'Edit', edit_dispensed_med_path(@dispensed_med) %> |
+<%= link_to 'Back', dispensed_meds_path %>

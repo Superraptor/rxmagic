@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Phid:</strong>
+  <%= @pharm_manufacturer.phID %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @pharm_manufacturer.manufacturer %>
+</p>
+
+<p>
+  <strong>Min income:</strong>
+  <%= @pharm_manufacturer.min_income %>
+</p>
+
+<p>
+  <strong>Months reorder:</strong>
+  <%= @pharm_manufacturer.months_reorder %>
+</p>
+
+<%= link_to 'Edit', edit_pharm_manufacturer_path(@pharm_manufacturer) %> |
+<%= link_to 'Back', pharm_manufacturers_path %>

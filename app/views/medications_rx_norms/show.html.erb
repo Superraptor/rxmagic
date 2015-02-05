@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ndc:</strong>
+  <%= @medications_rx_norm.ndc %>
+</p>
+
+<p>
+  <strong>Med name:</strong>
+  <%= @medications_rx_norm.med_name %>
+</p>
+
+<p>
+  <strong>Min stock:</strong>
+  <%= @medications_rx_norm.min_stock %>
+</p>
+
+<p>
+  <strong>Pharm manufacturers phid:</strong>
+  <%= @medications_rx_norm.pharm_manufacturers_phID %>
+</p>
+
+<%= link_to 'Edit', edit_medications_rx_norm_path(@medications_rx_norm) %> |
+<%= link_to 'Back', medications_rx_norms_path %>

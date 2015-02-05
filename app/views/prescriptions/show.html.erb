@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rxid:</strong>
+  <%= @prescription.rxID %>
+</p>
+
+<p>
+  <strong>Dose:</strong>
+  <%= @prescription.dose %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @prescription.frequency %>
+</p>
+
+<p>
+  <strong>Route:</strong>
+  <%= @prescription.route %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @prescription.date %>
+</p>
+
+<p>
+  <strong>Medications rxnorm ndc:</strong>
+  <%= @prescription.medications_rxnorm_ndc %>
+</p>
+
+<p>
+  <strong>Providers drid:</strong>
+  <%= @prescription.providers_drID %>
+</p>
+
+<p>
+  <strong>Patients ptid:</strong>
+  <%= @prescription.patients_ptID %>
+</p>
+
+<%= link_to 'Edit', edit_prescription_path(@prescription) %> |
+<%= link_to 'Back', prescriptions_path %>

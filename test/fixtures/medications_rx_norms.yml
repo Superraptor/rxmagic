@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ndc: MyString
+  med_name: MyString
+  min_stock: MyString
+  pharm_manufacturers_phID: 1
+
+two:
+  ndc: MyString
+  med_name: MyString
+  min_stock: MyString
+  pharm_manufacturers_phID: 1

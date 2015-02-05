@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patients_ptID: 1
+  pharm_manufacturers_phID: 1
+  medications_rxnorm_ndc: MyString
+  app_status: MyString
+  date_init: 2015-02-05
+
+two:
+  patients_ptID: 1
+  pharm_manufacturers_phID: 1
+  medications_rxnorm_ndc: MyString
+  app_status: MyString
+  date_init: 2015-02-05

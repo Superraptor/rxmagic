@@ -1,0 +1,29 @@
+<%= form_for(@dispensed_med) do |f| %>
+  <% if @dispensed_med.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dispensed_med.errors.count, "error") %> prohibited this dispensed_med from being saved:</h2>
+
+      <ul>
+      <% @dispensed_med.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dis_date %><br>
+    <%= f.date_select :dis_date %>
+  </div>
+  <div class="field">
+    <%= f.label :patients_ptID %><br>
+    <%= f.number_field :patients_ptID %>
+  </div>
+  <div class="field">
+    <%= f.label :inventory_invID %><br>
+    <%= f.number_field :inventory_invID %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

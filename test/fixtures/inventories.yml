@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invID: 1
+  lot_no: MyString
+  exp_date: 2015-02-05
+  current_stock: MyString
+  type: 
+  date_to_reorder: MyString
+  medications_rxnorm_ndc: MyString
+
+two:
+  invID: 1
+  lot_no: MyString
+  exp_date: 2015-02-05
+  current_stock: MyString
+  type: 
+  date_to_reorder: MyString
+  medications_rxnorm_ndc: MyString
