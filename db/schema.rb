@@ -14,22 +14,29 @@
 ActiveRecord::Schema.define(version: 20150205224003) do
 
   create_table "applications", force: :cascade do |t|
-    t.belongs_to  "patients",               index: true
-    t.belongs_to  "pharm_manufacturers",    index: true
-    t.belongs_to   "medications_rx_norms",  index: true
+    t.integer  "patients_id"
+    t.integer  "pharm_manufacturers_id"
+    t.integer  "medications_rx_norms_id"
     t.string   "app_status"
     t.date     "date_init"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  add_index "applications", ["medications_rx_norms_id"], name: "index_applications_on_medications_rx_norms_id"
+  add_index "applications", ["patients_id"], name: "index_applications_on_patients_id"
+  add_index "applications", ["pharm_manufacturers_id"], name: "index_applications_on_pharm_manufacturers_id"
 
   create_table "dispensed_meds", force: :cascade do |t|
     t.date     "dis_date"
-    t.belongs_to  "patients",     index: true
-    t.belongs_to  "inventories",  index: true
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "patients_id"
+    t.integer  "inventories_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "dispensed_meds", ["inventories_id"], name: "index_dispensed_meds_on_inventories_id"
+  add_index "dispensed_meds", ["patients_id"], name: "index_dispensed_meds_on_patients_id"
 
   create_table "inventories", force: :cascade do |t|
     t.integer  "invID"
@@ -38,19 +45,23 @@ ActiveRecord::Schema.define(version: 20150205224003) do
     t.string   "current_stock"
     t.string   "type"
     t.string   "date_to_reorder"
-    t.belongs_to   "medications_rx_norms",  index: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "medications_rx_norms_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  add_index "inventories", ["medications_rx_norms_id"], name: "index_inventories_on_medications_rx_norms_id"
 
   create_table "medications_rx_norms", force: :cascade do |t|
     t.string   "ndc"
     t.string   "med_name"
     t.string   "min_stock"
-    t.belongs_to  "pharm_manufacturers",    index: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "pharm_manufacturers_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
+
+  add_index "medications_rx_norms", ["pharm_manufacturers_id"], name: "index_medications_rx_norms_on_pharm_manufacturers_id"
 
   create_table "patients", force: :cascade do |t|
     t.integer  "ptID"
@@ -81,12 +92,16 @@ ActiveRecord::Schema.define(version: 20150205224003) do
     t.string   "frequency"
     t.string   "route"
     t.date     "date"
-    t.belongs_to   "medications_rx_norms",  index: true
-    t.belongs_to  "providers",              index: true
-    t.belongs_to  "patients",               index: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "medications_rx_norms_id"
+    t.integer  "providers_id"
+    t.integer  "patients_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  add_index "prescriptions", ["medications_rx_norms_id"], name: "index_prescriptions_on_medications_rx_norms_id"
+  add_index "prescriptions", ["patients_id"], name: "index_prescriptions_on_patients_id"
+  add_index "prescriptions", ["providers_id"], name: "index_prescriptions_on_providers_id"
 
   create_table "providers", force: :cascade do |t|
     t.integer  "drID"
