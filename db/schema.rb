@@ -14,19 +14,19 @@
 ActiveRecord::Schema.define(version: 20150205224003) do
 
   create_table "applications", force: :cascade do |t|
-    t.belongs_to  "patients"
-    t.belongs_to  "pharm_manufacturers"
-    t.belongs_to   "medications_rx_norms"
+    t.belongs_to  "patients",               index: true
+    t.belongs_to  "pharm_manufacturers",    index: true
+    t.belongs_to   "medications_rx_norms",  index: true
     t.string   "app_status"
     t.date     "date_init"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "dispensed_meds", force: :cascade do |t|
     t.date     "dis_date"
-    t.belongs_to  "patients"
-    t.belongs_to  "inventories"
+    t.belongs_to  "patients",     index: true
+    t.belongs_to  "inventories",  index: true
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -38,18 +38,18 @@ ActiveRecord::Schema.define(version: 20150205224003) do
     t.string   "current_stock"
     t.string   "type"
     t.string   "date_to_reorder"
-    t.belongs_to   "medications_rx_norms"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.belongs_to   "medications_rx_norms",  index: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "medications_rx_norms", force: :cascade do |t|
     t.string   "ndc"
     t.string   "med_name"
     t.string   "min_stock"
-    t.belongs_to  "pharm_manufacturers"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.belongs_to  "pharm_manufacturers",    index: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "patients", force: :cascade do |t|
@@ -81,11 +81,11 @@ ActiveRecord::Schema.define(version: 20150205224003) do
     t.string   "frequency"
     t.string   "route"
     t.date     "date"
-    t.belongs_to   "medications_rx_norms"
-    t.belongs_to  "providers"
-    t.belongs_to  "patients"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.belongs_to   "medications_rx_norms",  index: true
+    t.belongs_to  "providers",              index: true
+    t.belongs_to  "patients",               index: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "providers", force: :cascade do |t|
