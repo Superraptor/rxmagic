@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20150205224003) do
 
   create_table "applications", force: :cascade do |t|
-    t.integer  "patients_ptID"
-    t.integer  "pharm_manufacturers_phID"
-    t.string   "medications_rxnorm_ndc"
+    t.belongs_to  "patients"
+    t.belongs_to  "pharm_manufacturers"
+    t.belongs_to   "medications_rx_norms"
     t.string   "app_status"
     t.date     "date_init"
     t.datetime "created_at",               null: false
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150205224003) do
 
   create_table "dispensed_meds", force: :cascade do |t|
     t.date     "dis_date"
-    t.integer  "patients_ptID"
-    t.integer  "inventory_invID"
+    t.belongs_to  "patients"
+    t.belongs_to  "inventories"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150205224003) do
     t.string   "current_stock"
     t.string   "type"
     t.string   "date_to_reorder"
-    t.string   "medications_rxnorm_ndc"
+    t.belongs_to   "medications_rx_norms"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150205224003) do
     t.string   "ndc"
     t.string   "med_name"
     t.string   "min_stock"
-    t.integer  "pharm_manufacturers_phID"
+    t.belongs_to  "pharm_manufacturers"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -81,9 +81,9 @@ ActiveRecord::Schema.define(version: 20150205224003) do
     t.string   "frequency"
     t.string   "route"
     t.date     "date"
-    t.string   "medications_rxnorm_ndc"
-    t.integer  "providers_drID"
-    t.integer  "patients_ptID"
+    t.belongs_to   "medications_rx_norms"
+    t.belongs_to  "providers"
+    t.belongs_to  "patients"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
