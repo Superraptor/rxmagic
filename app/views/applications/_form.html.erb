@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label 'patient[ptID]', :patients_ptID %><br>
-    <%= f.number_field :patients_ptID %>
+    <%= f.label :patients_ptID %><br>
+    <%= f.number_field :patients_ptID, :value => @patient.ptID %>
   </div>
   <div class="field">
     <%= f.label :pharm_manufacturers_phID %><br>
