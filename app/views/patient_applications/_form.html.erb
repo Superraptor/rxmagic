@@ -1,10 +1,10 @@
-<%= form_for(@application) do |f| %>
-  <% if @application.errors.any? %>
+<%= form_for(@patient_application) do |f| %>
+  <% if @patient_application.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h2>
+      <h2><%= pluralize(@patient_application.errors.count, "error") %> prohibited this patient_application from being saved:</h2>
 
       <ul>
-      <% @application.errors.full_messages.each do |message| %>
+      <% @patient_application.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :patients_ptID %><br>
-    <%= f.number_field :patients_ptID, :value => @patient.ptID %>
+    <%= f.number_field :patients_ptID %>
   </div>
   <div class="field">
     <%= f.label :pharm_manufacturers_phID %><br>

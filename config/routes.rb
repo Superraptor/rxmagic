@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :applications
+  resources :patient_applications
 
   resources :pharm_manufacturers
 

@@ -11,21 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205224003) do
-
-  create_table "applications", force: :cascade do |t|
-    t.integer  "patients_id"
-    t.integer  "pharm_manufacturers_id"
-    t.integer  "medications_rx_norms_id"
-    t.string   "app_status"
-    t.date     "date_init"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "applications", ["medications_rx_norms_id"], name: "index_applications_on_medications_rx_norms_id"
-  add_index "applications", ["patients_id"], name: "index_applications_on_patients_id"
-  add_index "applications", ["pharm_manufacturers_id"], name: "index_applications_on_pharm_manufacturers_id"
+ActiveRecord::Schema.define(version: 20150208230318) do
 
   create_table "dispensed_meds", force: :cascade do |t|
     t.date     "dis_date"
@@ -62,6 +48,20 @@ ActiveRecord::Schema.define(version: 20150205224003) do
   end
 
   add_index "medications_rx_norms", ["pharm_manufacturers_id"], name: "index_medications_rx_norms_on_pharm_manufacturers_id"
+
+  create_table "patient_applications", force: :cascade do |t|
+    t.integer  "patients_id"
+    t.integer  "pharm_manufacturers_id"
+    t.integer  "medications_rx_norms_id"
+    t.string   "app_status"
+    t.date     "date_init"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "patient_applications", ["medications_rx_norms_id"], name: "index_patient_applications_on_medications_rx_norms_id"
+  add_index "patient_applications", ["patients_id"], name: "index_patient_applications_on_patients_id"
+  add_index "patient_applications", ["pharm_manufacturers_id"], name: "index_patient_applications_on_pharm_manufacturers_id"
 
   create_table "patients", force: :cascade do |t|
     t.integer  "ptID"

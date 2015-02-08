@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patients ptid:</strong>
+  <%= @patient_application.patients_ptID %>
+</p>
+
+<p>
+  <strong>Pharm manufacturers phid:</strong>
+  <%= @patient_application.pharm_manufacturers_phID %>
+</p>
+
+<p>
+  <strong>Medications rxnorm ndc:</strong>
+  <%= @patient_application.medications_rxnorm_ndc %>
+</p>
+
+<p>
+  <strong>App status:</strong>
+  <%= @patient_application.app_status %>
+</p>
+
+<p>
+  <strong>Date init:</strong>
+  <%= @patient_application.date_init %>
+</p>
+
+<%= link_to 'Edit', edit_patient_application_path(@patient_application) %> |
+<%= link_to 'Back', patient_applications_path %>

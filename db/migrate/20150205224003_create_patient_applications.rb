@@ -1,6 +1,6 @@
-class CreateApplications < ActiveRecord::Migration
+class CreatePatientApplications < ActiveRecord::Migration
   def change
-    create_table :applications do |t|
+    create_table :patient_applications do |t|
       t.integer :patients_ptID
       t.integer :pharm_manufacturers_phID
       t.string :medications_rxnorm_ndc
