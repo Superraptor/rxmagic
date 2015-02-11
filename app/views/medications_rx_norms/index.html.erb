@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Ndc</th>
-      <th>Med name</th>
-      <th>Min stock</th>
-      <th>Pharm manufacturers phid</th>
+      <th>Medname</th>
+      <th>Minstock</th>
+      <th>Pharmmanufacturersphid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +17,9 @@
     <% @medications_rx_norms.each do |medications_rx_norm| %>
       <tr>
         <td><%= medications_rx_norm.ndc %></td>
-        <td><%= medications_rx_norm.med_name %></td>
-        <td><%= medications_rx_norm.min_stock %></td>
-        <td><%= medications_rx_norm.pharm_manufacturers_phID %></td>
+        <td><%= medications_rx_norm.medname %></td>
+        <td><%= medications_rx_norm.minstock %></td>
+        <td><%= medications_rx_norm.pharmmanufacturersphid %></td>
         <td><%= link_to 'Show', medications_rx_norm %></td>
         <td><%= link_to 'Edit', edit_medications_rx_norm_path(medications_rx_norm) %></td>
         <td><%= link_to 'Destroy', medications_rx_norm, method: :delete, data: { confirm: 'Are you sure?' } %></td>

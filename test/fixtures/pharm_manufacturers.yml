@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  phID: 1
+  phid: 1
   manufacturer: MyString
-  min_income: MyString
-  months_reorder: MyString
+  minincome: MyString
+  monthsreorder: MyString
 
 two:
-  phID: 1
+  phid: 1
   manufacturer: MyString
-  min_income: MyString
-  months_reorder: MyString
+  minincome: MyString
+  monthsreorder: MyString

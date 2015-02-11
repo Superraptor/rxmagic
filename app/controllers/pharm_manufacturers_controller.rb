@@ -69,6 +69,6 @@ class PharmManufacturersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pharm_manufacturer_params
-      params.require(:pharm_manufacturer).permit(:phID, :manufacturer, :min_income, :months_reorder)
+      params.require(:pharm_manufacturer).permit(:phid, :manufacturer, :minincome, :monthsreorder)
     end
 end

@@ -7,8 +7,8 @@
     <tr>
       <th>Phid</th>
       <th>Manufacturer</th>
-      <th>Min income</th>
-      <th>Months reorder</th>
+      <th>Minincome</th>
+      <th>Monthsreorder</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @pharm_manufacturers.each do |pharm_manufacturer| %>
       <tr>
-        <td><%= pharm_manufacturer.phID %></td>
+        <td><%= pharm_manufacturer.phid %></td>
         <td><%= pharm_manufacturer.manufacturer %></td>
-        <td><%= pharm_manufacturer.min_income %></td>
-        <td><%= pharm_manufacturer.months_reorder %></td>
+        <td><%= pharm_manufacturer.minincome %></td>
+        <td><%= pharm_manufacturer.monthsreorder %></td>
         <td><%= link_to 'Show', pharm_manufacturer %></td>
         <td><%= link_to 'Edit', edit_pharm_manufacturer_path(pharm_manufacturer) %></td>
         <td><%= link_to 'Destroy', pharm_manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -11,60 +11,84 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208230318) do
+ActiveRecord::Schema.define(version: 20150211073035) do
 
-  create_table "dispensed_meds", force: :cascade do |t|
-    t.date     "dis_date"
-    t.integer  "patients_id"
-    t.integer  "inventories_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+  create_table "application_medications_rx_norms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "dispensed_meds", ["inventories_id"], name: "index_dispensed_meds_on_inventories_id"
-  add_index "dispensed_meds", ["patients_id"], name: "index_dispensed_meds_on_patients_id"
-
-  create_table "inventories", force: :cascade do |t|
-    t.integer  "invID"
-    t.string   "lot_no"
-    t.date     "exp_date"
-    t.string   "current_stock"
-    t.string   "type"
-    t.string   "date_to_reorder"
-    t.integer  "medications_rx_norms_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "application_patients", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "inventories", ["medications_rx_norms_id"], name: "index_inventories_on_medications_rx_norms_id"
+  create_table "application_pharm_manufacturers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-  create_table "medications_rx_norms", force: :cascade do |t|
-    t.string   "ndc"
-    t.string   "med_name"
-    t.string   "min_stock"
-    t.integer  "pharm_manufacturers_id"
+  create_table "applications", force: :cascade do |t|
+    t.integer  "patientsptid"
+    t.integer  "pharmmanufacturersphid"
+    t.string   "medicationsrxnormndc"
+    t.string   "appstatus"
+    t.date     "dateinit"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  add_index "medications_rx_norms", ["pharm_manufacturers_id"], name: "index_medications_rx_norms_on_pharm_manufacturers_id"
-
-  create_table "patient_applications", force: :cascade do |t|
-    t.integer  "patients_id"
-    t.integer  "pharm_manufacturers_id"
-    t.integer  "medications_rx_norms_id"
-    t.string   "app_status"
-    t.date     "date_init"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "dispensed_med_inventories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "patient_applications", ["medications_rx_norms_id"], name: "index_patient_applications_on_medications_rx_norms_id"
-  add_index "patient_applications", ["patients_id"], name: "index_patient_applications_on_patients_id"
-  add_index "patient_applications", ["pharm_manufacturers_id"], name: "index_patient_applications_on_pharm_manufacturers_id"
+  create_table "dispensed_med_patients", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dispensed_meds", force: :cascade do |t|
+    t.date     "disdate"
+    t.integer  "patientsid"
+    t.integer  "inventoryid"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.integer  "invid"
+    t.string   "lotno"
+    t.date     "expdate"
+    t.string   "currentstock"
+    t.string   "inventorytype"
+    t.date     "datetoreorder"
+    t.string   "medicationsrxnormndc"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "inventory_medications_rx_norms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "medications_rx_norm_pharm_manufacturers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "medications_rx_norms", force: :cascade do |t|
+    t.string   "ndc"
+    t.string   "medname"
+    t.string   "minstock"
+    t.integer  "pharmmanufacturersphid"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "patients", force: :cascade do |t|
-    t.integer  "ptID"
+    t.integer  "ptid"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "gender"
@@ -78,33 +102,44 @@ ActiveRecord::Schema.define(version: 20150208230318) do
   end
 
   create_table "pharm_manufacturers", force: :cascade do |t|
-    t.integer  "phID"
+    t.integer  "phid"
     t.string   "manufacturer"
-    t.string   "min_income"
-    t.string   "months_reorder"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "minincome"
+    t.string   "monthsreorder"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "prescription_medications_rx_norms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prescription_patients", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prescription_providers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prescriptions", force: :cascade do |t|
-    t.integer  "rxID"
+    t.integer  "rxid"
     t.string   "dose"
-    t.string   "frequency"
-    t.string   "route"
-    t.date     "date"
-    t.integer  "medications_rx_norms_id"
-    t.integer  "providers_id"
-    t.integer  "patients_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "frequencytaken"
+    t.string   "routetaken"
+    t.date     "dategiven"
+    t.string   "medicationsrxnormndc"
+    t.integer  "providersdrid"
+    t.integer  "patientsptid"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "prescriptions", ["medications_rx_norms_id"], name: "index_prescriptions_on_medications_rx_norms_id"
-  add_index "prescriptions", ["patients_id"], name: "index_prescriptions_on_patients_id"
-  add_index "prescriptions", ["providers_id"], name: "index_prescriptions_on_providers_id"
-
   create_table "providers", force: :cascade do |t|
-    t.integer  "drID"
+    t.integer  "drid"
     t.string   "firstname"
     t.string   "lastname"
     t.datetime "created_at", null: false

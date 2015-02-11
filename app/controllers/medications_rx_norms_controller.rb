@@ -69,6 +69,6 @@ class MedicationsRxNormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medications_rx_norm_params
-      params.require(:medications_rx_norm).permit(:ndc, :med_name, :min_stock, :pharm_manufacturers_phID)
+      params.require(:medications_rx_norm).permit(:ndc, :medname, :minstock, :pharmmanufacturersphid)
     end
 end

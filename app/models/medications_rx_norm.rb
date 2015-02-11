@@ -1,7 +1,13 @@
 class MedicationsRxNorm < ActiveRecord::Base
-  belongs_to :inventory, foreign_key: "medications_rxnorm_ndc", class_name: "Inventory"
-  belongs_to :prescriptions, foreign_key: "medications_rxnorm_ndc", class_name: "Prescription"
-  belongs_to :patient_application, foreign_key: "medications_rxnorm_ndc", class_name: "PatientApplication"
-  has_one :pharm_manufacturer
-  has_one :pharm_manufacturers_phID, :through => :pharm_manufacturer, :source => :medications_rx_norm, dependent: :nullify
+  has_many :application_medications_rx_norms
+  has_many :applications, :through => :application_medications_rx_norms
+
+  has_many :inventory_medications_rx_norms
+  has_many :inventories, :through => :inventory_medications_rx_norms
+
+  has_many :medications_rx_norm_pharm_manufacturers
+  has_many :pharm_manufacturers, :through => :medications_rx_norm_pharm_manufacturers
+
+  has_many :prescription_medications_rx_norms
+  has_many :prescriptions, :through => :prescription_medications_rx_norms
 end

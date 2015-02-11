@@ -18,7 +18,7 @@ class DispensedMedsControllerTest < ActionController::TestCase
 
   test "should create dispensed_med" do
     assert_difference('DispensedMed.count') do
-      post :create, dispensed_med: { dis_date: @dispensed_med.dis_date, inventory_invID: @dispensed_med.inventory_invID, patients_ptID: @dispensed_med.patients_ptID }
+      post :create, dispensed_med: { disdate: @dispensed_med.disdate, inventoryid: @dispensed_med.inventoryid, patientsid: @dispensed_med.patientsid }
     end
 
     assert_redirected_to dispensed_med_path(assigns(:dispensed_med))
@@ -35,7 +35,7 @@ class DispensedMedsControllerTest < ActionController::TestCase
   end
 
   test "should update dispensed_med" do
-    patch :update, id: @dispensed_med, dispensed_med: { dis_date: @dispensed_med.dis_date, inventory_invID: @dispensed_med.inventory_invID, patients_ptID: @dispensed_med.patients_ptID }
+    patch :update, id: @dispensed_med, dispensed_med: { disdate: @dispensed_med.disdate, inventoryid: @dispensed_med.inventoryid, patientsid: @dispensed_med.patientsid }
     assert_redirected_to dispensed_med_path(assigns(:dispensed_med))
   end
 

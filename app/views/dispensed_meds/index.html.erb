@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Dis date</th>
-      <th>Patients ptid</th>
-      <th>Inventory invid</th>
+      <th>Disdate</th>
+      <th>Patientsid</th>
+      <th>Inventoryid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
     <% @dispensed_meds.each do |dispensed_med| %>
       <tr>
-        <td><%= dispensed_med.dis_date %></td>
-        <td><%= dispensed_med.patients_ptID %></td>
-        <td><%= dispensed_med.inventory_invID %></td>
+        <td><%= dispensed_med.disdate %></td>
+        <td><%= dispensed_med.patientsid %></td>
+        <td><%= dispensed_med.inventoryid %></td>
         <td><%= link_to 'Show', dispensed_med %></td>
         <td><%= link_to 'Edit', edit_dispensed_med_path(dispensed_med) %></td>
         <td><%= link_to 'Destroy', dispensed_med, method: :delete, data: { confirm: 'Are you sure?' } %></td>

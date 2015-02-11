@@ -69,6 +69,6 @@ class InventoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inventory_params
-      params.require(:inventory).permit(:invID, :lot_no, :exp_date, :current_stock, :type, :date_to_reorder, :medications_rxnorm_ndc)
+      params.require(:inventory).permit(:invid, :lotno, :expdate, :currentstock, :inventorytype, :datetoreorder, :medicationsrxnormndc)
     end
 end

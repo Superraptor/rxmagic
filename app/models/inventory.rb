@@ -1,5 +1,8 @@
 class Inventory < ActiveRecord::Base
-  belongs_to :dispensed_meds, foreign_key: "invID", class_name: "DispensedMed"
-  has_many :medications_rx_norm
-  has_many :medications_rxnorm_ndc, :through => :medications_rx_norm, :source => :inventory, dependent: :nullify
+  has_many :dispensed_med_inventories
+  has_many :dispensed_meds, :through => :dispensed_med_inventories
+
+  has_many :inventory_medications_rx_norms
+  has_many :medications_rx_norms, :through => :inventory_medications_rx_norms
+
 end

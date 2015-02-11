@@ -18,7 +18,7 @@ class InventoriesControllerTest < ActionController::TestCase
 
   test "should create inventory" do
     assert_difference('Inventory.count') do
-      post :create, inventory: { current_stock: @inventory.current_stock, date_to_reorder: @inventory.date_to_reorder, exp_date: @inventory.exp_date, invID: @inventory.invID, lot_no: @inventory.lot_no, medications_rxnorm_ndc: @inventory.medications_rxnorm_ndc, type: @inventory.type }
+      post :create, inventory: { currentstock: @inventory.currentstock, datetoreorder: @inventory.datetoreorder, expdate: @inventory.expdate, inventorytype: @inventory.inventorytype, invid: @inventory.invid, lotno: @inventory.lotno, medicationsrxnormndc: @inventory.medicationsrxnormndc }
     end
 
     assert_redirected_to inventory_path(assigns(:inventory))
@@ -35,7 +35,7 @@ class InventoriesControllerTest < ActionController::TestCase
   end
 
   test "should update inventory" do
-    patch :update, id: @inventory, inventory: { current_stock: @inventory.current_stock, date_to_reorder: @inventory.date_to_reorder, exp_date: @inventory.exp_date, invID: @inventory.invID, lot_no: @inventory.lot_no, medications_rxnorm_ndc: @inventory.medications_rxnorm_ndc, type: @inventory.type }
+    patch :update, id: @inventory, inventory: { currentstock: @inventory.currentstock, datetoreorder: @inventory.datetoreorder, expdate: @inventory.expdate, inventorytype: @inventory.inventorytype, invid: @inventory.invid, lotno: @inventory.lotno, medicationsrxnormndc: @inventory.medicationsrxnormndc }
     assert_redirected_to inventory_path(assigns(:inventory))
   end
 

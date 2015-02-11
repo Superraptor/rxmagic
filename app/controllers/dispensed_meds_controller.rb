@@ -69,6 +69,6 @@ class DispensedMedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dispensed_med_params
-      params.require(:dispensed_med).permit(:dis_date, :patients_ptID, :inventory_invID)
+      params.require(:dispensed_med).permit(:disdate, :patientsid, :inventoryid)
     end
 end

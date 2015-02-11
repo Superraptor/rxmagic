@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  drID: 1
+  drid: 1
   firstname: MyString
   lastname: MyString
 
 two:
-  drID: 1
+  drid: 1
   firstname: MyString
   lastname: MyString

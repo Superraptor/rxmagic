@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patientsptid:</strong>
+  <%= @application.patientsptid %>
+</p>
+
+<p>
+  <strong>Pharmmanufacturersphid:</strong>
+  <%= @application.pharmmanufacturersphid %>
+</p>
+
+<p>
+  <strong>Medicationsrxnormndc:</strong>
+  <%= @application.medicationsrxnormndc %>
+</p>
+
+<p>
+  <strong>Appstatus:</strong>
+  <%= @application.appstatus %>
+</p>
+
+<p>
+  <strong>Dateinit:</strong>
+  <%= @application.dateinit %>
+</p>
+
+<%= link_to 'Edit', edit_application_path(@application) %> |
+<%= link_to 'Back', applications_path %>

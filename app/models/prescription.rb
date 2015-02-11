@@ -1,8 +1,10 @@
 class Prescription < ActiveRecord::Base
-  has_one :medications_rx_norm
-  has_one :medications_rxnorm_ndc, :through => :medications_rx_norm, :source => :prescriptions,  dependent: :nullify
-  has_one :provider
-  has_one :providers_drID, :through => :provider, :source => :prescriptions, dependent: :nullify
-  has_one :patient
-  has_one :patients_ptID, :through => :patient, :source => :prescriptions, dependent: :nullify
+  has_many :prescription_providers
+  has_many :providers, :through => :prescription_providers
+  
+  has_many :prescription_medications_rx_norms
+  has_many :medications_rx_norms, :through => :prescription_medications_rx_norms
+  
+  has_many :prescription_patients
+  has_many :patients, :through => :prescription_patients
 end

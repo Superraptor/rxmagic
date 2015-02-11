@@ -1,3 +1,4 @@
 class Provider < ActiveRecord::Base
-  belongs_to :prescriptions, foreign_key: "providers_drID", class_name: "Prescription"
+  has_many :prescription_providers
+  has_many :prescriptions, :through => :prescription_providers
 end

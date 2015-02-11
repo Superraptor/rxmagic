@@ -7,12 +7,12 @@
     <tr>
       <th>Rxid</th>
       <th>Dose</th>
-      <th>Frequency</th>
-      <th>Route</th>
-      <th>Date</th>
-      <th>Medications rxnorm ndc</th>
-      <th>Providers drid</th>
-      <th>Patients ptid</th>
+      <th>Frequencytaken</th>
+      <th>Routetaken</th>
+      <th>Dategiven</th>
+      <th>Medicationsrxnormndc</th>
+      <th>Providersdrid</th>
+      <th>Patientsptid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,14 +20,14 @@
   <tbody>
     <% @prescriptions.each do |prescription| %>
       <tr>
-        <td><%= prescription.rxID %></td>
+        <td><%= prescription.rxid %></td>
         <td><%= prescription.dose %></td>
-        <td><%= prescription.frequency %></td>
-        <td><%= prescription.route %></td>
-        <td><%= prescription.date %></td>
-        <td><%= prescription.medications_rxnorm_ndc %></td>
-        <td><%= prescription.providers_drID %></td>
-        <td><%= prescription.patients_ptID %></td>
+        <td><%= prescription.frequencytaken %></td>
+        <td><%= prescription.routetaken %></td>
+        <td><%= prescription.dategiven %></td>
+        <td><%= prescription.medicationsrxnormndc %></td>
+        <td><%= prescription.providersdrid %></td>
+        <td><%= prescription.patientsptid %></td>
         <td><%= link_to 'Show', prescription %></td>
         <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
         <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>

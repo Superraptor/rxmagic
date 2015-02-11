@@ -18,7 +18,7 @@ class MedicationsRxNormsControllerTest < ActionController::TestCase
 
   test "should create medications_rx_norm" do
     assert_difference('MedicationsRxNorm.count') do
-      post :create, medications_rx_norm: { med_name: @medications_rx_norm.med_name, min_stock: @medications_rx_norm.min_stock, ndc: @medications_rx_norm.ndc, pharm_manufacturers_phID: @medications_rx_norm.pharm_manufacturers_phID }
+      post :create, medications_rx_norm: { medname: @medications_rx_norm.medname, minstock: @medications_rx_norm.minstock, ndc: @medications_rx_norm.ndc, pharmmanufacturersphid: @medications_rx_norm.pharmmanufacturersphid }
     end
 
     assert_redirected_to medications_rx_norm_path(assigns(:medications_rx_norm))
@@ -35,7 +35,7 @@ class MedicationsRxNormsControllerTest < ActionController::TestCase
   end
 
   test "should update medications_rx_norm" do
-    patch :update, id: @medications_rx_norm, medications_rx_norm: { med_name: @medications_rx_norm.med_name, min_stock: @medications_rx_norm.min_stock, ndc: @medications_rx_norm.ndc, pharm_manufacturers_phID: @medications_rx_norm.pharm_manufacturers_phID }
+    patch :update, id: @medications_rx_norm, medications_rx_norm: { medname: @medications_rx_norm.medname, minstock: @medications_rx_norm.minstock, ndc: @medications_rx_norm.ndc, pharmmanufacturersphid: @medications_rx_norm.pharmmanufacturersphid }
     assert_redirected_to medications_rx_norm_path(assigns(:medications_rx_norm))
   end
 

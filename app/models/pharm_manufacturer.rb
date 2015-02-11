@@ -1,4 +1,7 @@
 class PharmManufacturer < ActiveRecord::Base
-  belongs_to :patient_application, foreign_key: "pharm_manufacturers_phID", class_name: "PatientApplication"
-  belongs_to :medications_rx_norm, foreign_key: "pharm_manufacturers_phID", class_name: "MedicationsRxNorm"
+  has_many :application_pharm_manufacturers
+  has_many :applications, :through => :application_pharm_manufacturers
+
+  has_many :medications_rx_norm_pharm_manufacturers
+  has_many :medications_rx_norms, :through => :medications_rx_norm_pharm_manufacturers
 end

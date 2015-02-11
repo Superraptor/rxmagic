@@ -1,4 +1,4 @@
 json.array!(@inventories) do |inventory|
-  json.extract! inventory, :id, :invID, :lot_no, :exp_date, :current_stock, :type, :date_to_reorder, :medications_rxnorm_ndc
+  json.extract! inventory, :id, :invid, :lotno, :expdate, :currentstock, :inventorytype, :datetoreorder, :medicationsrxnormndc
   json.url inventory_url(inventory, format: :json)
 end

@@ -2,12 +2,12 @@
 
 one:
   ndc: MyString
-  med_name: MyString
-  min_stock: MyString
-  pharm_manufacturers_phID: 1
+  medname: MyString
+  minstock: MyString
+  pharmmanufacturersphid: 1
 
 two:
   ndc: MyString
-  med_name: MyString
-  min_stock: MyString
-  pharm_manufacturers_phID: 1
+  medname: MyString
+  minstock: MyString
+  pharmmanufacturersphid: 1

@@ -1,1 +1,1 @@
-json.extract! @prescription, :id, :rxID, :dose, :frequency, :route, :date, :medications_rxnorm_ndc, :providers_drID, :patients_ptID, :created_at, :updated_at
+json.extract! @prescription, :id, :rxid, :dose, :frequencytaken, :routetaken, :dategiven, :medicationsrxnormndc, :providersdrid, :patientsptid, :created_at, :updated_at

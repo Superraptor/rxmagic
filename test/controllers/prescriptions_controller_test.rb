@@ -18,7 +18,7 @@ class PrescriptionsControllerTest < ActionController::TestCase
 
   test "should create prescription" do
     assert_difference('Prescription.count') do
-      post :create, prescription: { date: @prescription.date, dose: @prescription.dose, frequency: @prescription.frequency, medications_rxnorm_ndc: @prescription.medications_rxnorm_ndc, patients_ptID: @prescription.patients_ptID, providers_drID: @prescription.providers_drID, route: @prescription.route, rxID: @prescription.rxID }
+      post :create, prescription: { dategiven: @prescription.dategiven, dose: @prescription.dose, frequencytaken: @prescription.frequencytaken, medicationsrxnormndc: @prescription.medicationsrxnormndc, patientsptid: @prescription.patientsptid, providersdrid: @prescription.providersdrid, routetaken: @prescription.routetaken, rxid: @prescription.rxid }
     end
 
     assert_redirected_to prescription_path(assigns(:prescription))
@@ -35,7 +35,7 @@ class PrescriptionsControllerTest < ActionController::TestCase
   end
 
   test "should update prescription" do
-    patch :update, id: @prescription, prescription: { date: @prescription.date, dose: @prescription.dose, frequency: @prescription.frequency, medications_rxnorm_ndc: @prescription.medications_rxnorm_ndc, patients_ptID: @prescription.patients_ptID, providers_drID: @prescription.providers_drID, route: @prescription.route, rxID: @prescription.rxID }
+    patch :update, id: @prescription, prescription: { dategiven: @prescription.dategiven, dose: @prescription.dose, frequencytaken: @prescription.frequencytaken, medicationsrxnormndc: @prescription.medicationsrxnormndc, patientsptid: @prescription.patientsptid, providersdrid: @prescription.providersdrid, routetaken: @prescription.routetaken, rxid: @prescription.rxid }
     assert_redirected_to prescription_path(assigns(:prescription))
   end
 

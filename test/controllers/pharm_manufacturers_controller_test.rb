@@ -18,7 +18,7 @@ class PharmManufacturersControllerTest < ActionController::TestCase
 
   test "should create pharm_manufacturer" do
     assert_difference('PharmManufacturer.count') do
-      post :create, pharm_manufacturer: { manufacturer: @pharm_manufacturer.manufacturer, min_income: @pharm_manufacturer.min_income, months_reorder: @pharm_manufacturer.months_reorder, phID: @pharm_manufacturer.phID }
+      post :create, pharm_manufacturer: { manufacturer: @pharm_manufacturer.manufacturer, minincome: @pharm_manufacturer.minincome, monthsreorder: @pharm_manufacturer.monthsreorder, phid: @pharm_manufacturer.phid }
     end
 
     assert_redirected_to pharm_manufacturer_path(assigns(:pharm_manufacturer))
@@ -35,7 +35,7 @@ class PharmManufacturersControllerTest < ActionController::TestCase
   end
 
   test "should update pharm_manufacturer" do
-    patch :update, id: @pharm_manufacturer, pharm_manufacturer: { manufacturer: @pharm_manufacturer.manufacturer, min_income: @pharm_manufacturer.min_income, months_reorder: @pharm_manufacturer.months_reorder, phID: @pharm_manufacturer.phID }
+    patch :update, id: @pharm_manufacturer, pharm_manufacturer: { manufacturer: @pharm_manufacturer.manufacturer, minincome: @pharm_manufacturer.minincome, monthsreorder: @pharm_manufacturer.monthsreorder, phid: @pharm_manufacturer.phid }
     assert_redirected_to pharm_manufacturer_path(assigns(:pharm_manufacturer))
   end
 
