@@ -23,7 +23,9 @@ gem 'jbuilder', '~> 2.2.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'bootstrap-sass', '3.2.0.2'
+# gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
+gem 'bootstrap-sass', '~> 3.2.0'
+
 gem 'autoprefixer-rails'
 
 # Use ActiveModel has_secure_password

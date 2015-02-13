@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  root             'static_pages#home'
+  get 'help'    => 'static_pages#help'
+  get 'about'   => 'static_pages#about'
+  get 'contact' => 'static_pages#contact'
+  
   resources :applications
 
   resources :patient_applications
@@ -15,11 +21,7 @@ Rails.application.routes.draw do
 
   resources :prescriptions
 
-  get 'static_pages/home'
-
   resources :patients
-  get 'patients/search', to: 'patients#search'
-  root 'patients#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

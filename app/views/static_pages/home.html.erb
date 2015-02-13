@@ -1,2 +1,76 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+  </script>
+<![endif]-->
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   '#' %></li>
+        <li><%= link_to "Help",   '#' %></li>
+        <li><%= link_to "Log in", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>RxMagic</h1>      
+    <p>This is a description of the project, briefly describing what it is about.</p>
+  </div>
+  
+  <div class="container">
+    <button type="button" class="btn btn-primary">Register a patient</button>
+    <button type="button" class="btn btn-primary">Find a patient</button>
+    <button type="button" class="btn btn-primary">Disperse medication</button>
+    <button type="button" class="btn btn-primary">PMAP management</button>
+    <button type="button" class="btn btn-primary">Inventory management</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <small>
+    The <a href="#/about">RxMagic Application</a>
+    by <a href="#">Arielle Fischer</a>
+    and <a href="#">Charles Kronk</a>
+  </small>
+  <nav>
+    <ul>
+      <li><a href="News">About</a></li>
+      <li><a href="News">Contact</a></li>
+      <li><a href="News">News</a></li>
+    </ul>
+  </nav>
+</footer>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
