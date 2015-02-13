@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   resources :patients
+  get 'patients/search', to: 'patients#search'
   root 'patients#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

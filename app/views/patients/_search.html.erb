@@ -1,0 +1,66 @@
+<% if @total == 0 %>
+
+<p>No patients found...</p>
+
+<% else %>
+
+<p>Number of patients found : <b><%= @total %></b></p>
+
+<p>
+<% if @patients_pages.page_count > 1 %>
+Page&nbsp;:
+<%= pagination_links_remote @patients_pages %>
+<% end %>
+</p>
+
+
+<table>
+  <thead>
+    <tr>
+      <td <%= sort_td_class_helper "ptid" %>>
+        <%= sort_link_helper "Patient ID", "ptid" %>
+      </td>
+      <td <%= sort_td_class_helper "firstname" %>>
+        <%= sort_link_helper "First Name", "firstname" %>
+      </td>
+      <td <%= sort_td_class_helper "lastname" %>>
+        <%= sort_link_helper "Last Name", "lastname" %>
+      </td>
+      <td <%= sort_td_class_helper "gender" %>>
+        <%= sort_link_helper "Gender", "gender" %>
+      </td>
+      <td <%= sort_td_class_helper "dob" %>>
+        <%= sort_link_helper "Date of Birth", "dob" %>
+      </td>
+      <td <%= sort_td_class_helper "address" %>>
+        <%= sort_link_helper "Address", "address" %>
+      </td>
+      <td <%= sort_td_class_helper "city" %>>
+        <%= sort_link_helper "City", "city" %>
+      </td>
+      <td <%= sort_td_class_helper "state" %>>
+        <%= sort_link_helper "State", "state" %>
+      </td>
+      <td <%= sort_td_class_helper "zip" %>>
+        <%= sort_link_helper "ZIP", "zip" %>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |i| %>
+    <tr class="<%= cycle("even","odd") %>">
+      <td><%= i.ptid %></td>
+      <td><%= i.firstname %></td>
+      <td><%= i.lastname %></td>
+      <td><%= i.gender %></td>
+      <td><%= i.dob %></td>
+      <td><%= i.address %></td>
+      <td><%= i.city %></td>
+      <td><%= i.state %></td>
+      <td><%= i.zip %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
