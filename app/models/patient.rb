@@ -7,4 +7,9 @@ class Patient < ActiveRecord::Base
   
   has_many :prescription_patients
   has_many :prescriptions, :through => :prescription_patients
+  
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['firstname LIKE ? OR lastname LIKE ?', search_condition, search_condition])
+  end
 end

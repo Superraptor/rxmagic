@@ -62,30 +62,7 @@ class PatientsController < ApplicationController
   end
   
   def search
-
-    patients_per_page = 10
-
-    sort = case params['sort']
-           when "ptid"  then "Patient ID"
-           when "firstname"   then "First Name"
-           when "lastname" then "Last Name"
-           when "gender"  then "Gender"
-           when "dob"   then "Date of Birth"
-           when "address" then "Address"
-           when "city" then "City"
-           when "state" then "State"
-           when "zip" then "ZIP"
-           end
-
-    conditions = ["lastname LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
-
-    @total = Patient.count(:conditions => conditions)
-    @patients_pages, @patients = paginate :patients, :order => sort, :conditions => conditions, :per_page => patients_per_page
-
-    if request.xml_http_request?
-      render :partial => "patients_list", :layout => false
-    end
-
+    @patients = Patient.search params[:search]
   end
 
   private

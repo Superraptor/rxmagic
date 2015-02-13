@@ -12,39 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ptid %><br>
+    <%= "Patient ID" %><br>
     <%= f.number_field :ptid %>
   </div>
   <div class="field">
-    <%= f.label :firstname %><br>
+    <%= "First Name" %><br>
     <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label :lastname %><br>
+    <%= "Last Name" %><br>
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
-    <%= f.label :gender %><br>
+    <%= "Gender" %><br>
     <%= f.text_field :gender %>
   </div>
   <div class="field">
-    <%= f.label :dob %><br>
+    <%= "Date of Birth" %><br>
     <%= f.text_field :dob %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= "Address" %><br>
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
+    <%= "City" %><br>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= "State" %><br>
+    <%= select_tag :state, options_for_select([['AL','AL'], ['AK', 'AK'], ['AZ', 'AZ'], ['CA', 'CA']]) %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br>
+    <%= "ZIP Code" %><br>
     <%= f.text_field :zip %>
   </div>
   <div class="actions">

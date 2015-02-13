@@ -25,29 +25,67 @@
   </script>
 <![endif]-->
 
-<body>
+<%= render "header" %>
 
-  <%= render "header" %>
-  
-  
-  <div class="container">
-    <div class="jumbotron">
-      <h1>RxMagic</h1>      
-      <p>Please make a selection below to begin.</p>
-    </div>
+body {
+    background-color: White;
+    margin: 30px;
+}
+
+#titleMagic {
+    list-style-type: georgian;
+    margin: 0;
+    padding: 5px;
+    overflow: hidden;
+    text-align: left;
+    background-color: DarkSlateGray;
+    color: LavenderBlush;
+    font-family: "Arial", sans-serif;
+    font-size: 30px;
+    border: 2px solid;
+    border-radius: 10px;
+    
+}  
+</style>
+
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>RxMAGIC</title>
+        <meta name="description" content="RxMAGIC">
+        <link rel="stylesheet" href="practice.css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    </head>
+
+<body>
+    <%= render "header" %>
     
     <div class="container">
-      <a type="button" href="patients/new" class="btn btn-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Register a patient</a>
-      <a type="button" href="patients" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find a patient</a>
-      <a type="button" href="#" class="btn btn-primary"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Dispense medication</a>
-      <a type="button" href="#" class="btn btn-primary"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> PAP management</a>
-      <a type="button" href="#" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Inventory management</a>
+      <div class="jumbotron">
+        <h1>About RxMagic</h1>
     </div>
-  </div>
-  
-  <%= render "footer" %>
+    
+    <br>
+    
+    <h2>Contact Us</h2>
+    <p>We are happy to answer any questions and provide technical assistance when necessary. 
+       Send us an email, our addresses are below.</p>
+       
+    <div>
+      <ul style="list-style-type:disc">
+        <li>Arielle Fisher: arf56@pitt.edu</li>
+        <li>Charles Kronk: charles.kronk@gmail.com</li>
+      </ul>
+    </div>
 
-</body>
+
+
+
+<%= render "footer" %>
+
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

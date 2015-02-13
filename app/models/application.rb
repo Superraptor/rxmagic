@@ -7,4 +7,5 @@ class Application < ActiveRecord::Base
   
   has_many :application_pharm_manufacturers
   has_many :pharm_manufacturers, :through => :application_pharm_manufacturers
+  
 end
