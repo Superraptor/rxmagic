@@ -1,3 +1,13 @@
 // Place all the styles related to the Patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* tables */
+th, td { padding: 5px; }
+  
+table { border-collapse: separate; border-spacing: 10px; }
+table { border-collapse: collapse; border-spacing: 0; }
+  
+th, td { vertical-align: top; }
+  
+table { margin: 0 auto; }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http equiv "X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= favicon_link_tag 'pill.png', type: 'image/png' %>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https//js.stripe.com/v2/' %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <%= csrf_meta_tags %>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "RxMagic", '#', id: "logo" %>
+      </div>
+      
+      <!-- FIX THIS...NAVBAR DOES NOT COLLAPSE BACK -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="home">Home</a></li>
+          <li><a href="help">Help</a></li>
+          <li><a href="login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+  
+  <footer class="footer">
+    <small>
+      The <a href="#/about">RxMagic Application</a>
+      by <a href="#">Arielle Fisher</a>
+      and <a href="#">Charles Kronk</a>
+    </small>
+    <nav>
+      <ul>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="news">News</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>

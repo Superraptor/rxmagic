@@ -1,10 +1,23 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy, :search]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    # @patients = Patient.all
+    @filterrific = initialize_filterrific(
+      Patient,
+      params[:filterrific],
+      :select_options => {
+        sorted_by: Patient.options_for_sorted_by
+      }
+    ) or return
+    @patients = @filterrific.find.page(params[:page])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /patients/1
@@ -61,9 +74,6 @@ class PatientsController < ApplicationController
     end
   end
   
-  def search
-    @patients = Patient.search params[:search]
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

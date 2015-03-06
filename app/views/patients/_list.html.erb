@@ -1,0 +1,38 @@
+<div id="filterrific_results">
+  <div>
+    <%= page_entries_info patients %>
+  </div>
+  
+  <table>
+    <tr>
+      <th>Patient ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Date of Birth</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>ZIP Code</th>
+      <th colspan="3"></th>
+    </tr>
+    <% @patients.each do |patient| %>
+      <tr data-link="<%= patient_path(patient) %>">
+        <td><%= patient.ptid %></td>
+        <td><%= patient.firstname %></td>
+        <td><%= patient.lastname %></td>
+        <td><%= patient.gender %></td>
+        <td><%= patient.dob %></td>
+        <td><%= patient.address %></td>
+        <td><%= patient.city %></td>
+        <td><%= patient.state %></td>
+        <td><%= patient.zip %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate patients %>

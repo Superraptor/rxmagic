@@ -2,38 +2,31 @@
 
 <h1>Listing Inventories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Invid</th>
-      <th>Lotno</th>
-      <th>Expdate</th>
-      <th>Currentstock</th>
-      <th>Inventorytype</th>
-      <th>Datetoreorder</th>
-      <th>Medicationsrxnormndc</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
+  <div>
+    Search
+    <%= f.text_field(
+      :search_query
+    ) %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <div>
+    <%= f.submit 'Filter' %>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @inventories.each do |inventory| %>
-      <tr>
-        <td><%= inventory.invid %></td>
-        <td><%= inventory.lotno %></td>
-        <td><%= inventory.expdate %></td>
-        <td><%= inventory.currentstock %></td>
-        <td><%= inventory.inventorytype %></td>
-        <td><%= inventory.datetoreorder %></td>
-        <td><%= inventory.medicationsrxnormndc %></td>
-        <td><%= link_to 'Show', inventory %></td>
-        <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
-        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= render(
+  partial: 'inventories/list',
+  locals: { inventories: @inventories }
+) %>
 
 <%= link_to 'New Inventory', new_inventory_path %>

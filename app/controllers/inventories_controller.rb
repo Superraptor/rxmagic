@@ -4,7 +4,21 @@ class InventoriesController < ApplicationController
   # GET /inventories
   # GET /inventories.json
   def index
-    @inventories = Inventory.all
+  #  @inventories = Inventory.all
+  
+    @filterrific = initialize_filterrific(
+      Inventory,
+      params[:filterrific],
+      :select_options => {
+        sorted_by: Inventory.options_for_sorted_by
+      }
+    ) or return
+    @inventories = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /inventories/1

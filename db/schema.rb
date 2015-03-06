@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211073035) do
+ActiveRecord::Schema.define(version: 20150222220723) do
 
   create_table "application_medications_rx_norms", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -51,21 +51,21 @@ ActiveRecord::Schema.define(version: 20150211073035) do
   create_table "dispensed_meds", force: :cascade do |t|
     t.date     "disdate"
     t.integer  "patientsid"
-    t.integer  "inventoryid"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "inventoryid", limit: 20
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "inventories", force: :cascade do |t|
-    t.integer  "invid"
+    t.integer  "invid",                limit: 20
     t.string   "lotno"
     t.date     "expdate"
     t.string   "currentstock"
     t.string   "inventorytype"
     t.date     "datetoreorder"
     t.string   "medicationsrxnormndc"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "inventory_medications_rx_norms", force: :cascade do |t|

@@ -6,12 +6,12 @@
 </p>
 
 <p>
-  <strong>Firstname:</strong>
+  <strong>First Name:</strong>
   <%= @patient.firstname %>
 </p>
 
 <p>
-  <strong>Lastname:</strong>
+  <strong>Last Name:</strong>
   <%= @patient.lastname %>
 </p>
 
@@ -21,7 +21,7 @@
 </p>
 
 <p>
-  <strong>Dob:</strong>
+  <strong>Date of Birth:</strong>
   <%= @patient.dob %>
 </p>
 
@@ -41,9 +41,25 @@
 </p>
 
 <p>
-  <strong>Zip:</strong>
+  <strong>ZIP Code:</strong>
   <%= @patient.zip %>
 </p>
 
+<p>
+  <strong>Dispensed Medications:</strong>
+  <%= @patient.dispensed_meds %>
+</p>
+
+<p>
+  <strong>Inventory:</strong>
+  <%= @patient.inventory %>
+</p>
+
+<p>
+  <strong>Medicine Name:</strong>
+  <%= @patient.medicationsrxnormndc %>
+</p>
+
+<%= link_to('Scan New Medication', new_dispensed_med_path(patientid: @patient.ptid)) %> |
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

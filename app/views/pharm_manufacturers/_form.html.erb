@@ -1,33 +1,37 @@
-<%= form_for(@pharm_manufacturer) do |f| %>
-  <% if @pharm_manufacturer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pharm_manufacturer.errors.count, "error") %> prohibited this pharm_manufacturer from being saved:</h2>
-
-      <ul>
-      <% @pharm_manufacturer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@pharm_manufacturer) do |f| %>
+      <% if @pharm_manufacturer.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@pharm_manufacturer.errors.count, "error") %> prohibited this pharm_manufacturer from being saved:</h2>
+    
+          <ul>
+          <% @pharm_manufacturer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :phid %><br>
-    <%= f.number_field :phid %>
+    
+      <div class="field">
+        <%= f.label :phid %><br>
+        <%= f.number_field :phid, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :manufacturer %><br>
+        <%= f.text_field :manufacturer, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :minincome %><br>
+        <%= f.text_field :minincome, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :monthsreorder %><br>
+        <%= f.text_field :monthsreorder, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Create Pharmaceutical Manufacturer", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :manufacturer %><br>
-    <%= f.text_field :manufacturer %>
-  </div>
-  <div class="field">
-    <%= f.label :minincome %><br>
-    <%= f.text_field :minincome %>
-  </div>
-  <div class="field">
-    <%= f.label :monthsreorder %><br>
-    <%= f.text_field :monthsreorder %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

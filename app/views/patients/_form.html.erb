@@ -1,53 +1,57 @@
-<%= form_for(@patient) do |f| %>
-  <% if @patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
-
-      <ul>
-      <% @patient.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@patient) do |f| %>
+      <% if @patient.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+    
+          <ul>
+          <% @patient.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= "Patient ID" %><br>
-    <%= f.number_field :ptid %>
+    
+      <div class="field">
+        <%= "Patient ID" %><br>
+        <%= f.number_field :ptid, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= "First Name" %><br>
+        <%= f.text_field :firstname, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= "Last Name" %><br>
+        <%= f.text_field :lastname, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= "Gender" %><br>
+        <%= f.text_field :gender, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= "Date of Birth" %><br>
+        <%= f.text_field :dob, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= "Address" %><br>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= "City" %><br>
+        <%= f.text_field :city, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= "State" %><br>
+        <%= f.select :state, options_for_select([['AL', 'AL'], ['AK', 'AK'], ['AZ', 'AZ'], ['AR', 'AR'], ['CA', 'CA'], ['CO', 'CO'], ['CT', 'CT'], ['DE', 'DE'], ['FL', 'FL'], ['GA', 'GA'], ['HI', 'HI'], ['ID', 'ID'], ['IL', 'IL'], ['IN', 'IN'], ['IA', 'IA'], ['KS', 'KS'], ['KY', 'KY'], ['LA', 'LA'], ['ME', 'ME'], ['MD', 'MD'], ['MA', 'MA'], ['MI', 'MI'], ['MN', 'MN'], ['MS', 'MS'], ['MO', 'MO'], ['MT', 'MT'], ['NE', 'NE'], ['NV', 'NV'], ['NH', 'NH'], ['NJ', 'NJ'], ['NM', 'NM'], ['NY', 'NY'], ['NC', 'NC'], ['ND', 'ND'], ['OH', 'OH'], ['OK', 'OK'], ['OR', 'OR'], ['PA', 'PA'], ['RI', 'RI'], ['SC', 'SC'], ['SD', 'SD'], ['TN', 'TN'], ['TX', 'TX'], ['UT', 'UT'], ['VT', 'VT'], ['VA', 'VA'], ['WA', 'WA'], ['WV', 'WV'], ['WI', 'WI'], ['WY', 'WY']], @patient.state) %>
+      </div>
+      <div class="field">
+        <%= "ZIP Code" %><br>
+        <%= f.text_field :zip, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Create Patient", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= "First Name" %><br>
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="field">
-    <%= "Last Name" %><br>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= "Gender" %><br>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= "Date of Birth" %><br>
-    <%= f.text_field :dob %>
-  </div>
-  <div class="field">
-    <%= "Address" %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= "City" %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= "State" %><br>
-    <%= select_tag :state, options_for_select([['AL', 1], ['AK', 2], ['AZ', 3], ['CA', 4]]) %>
-  </div>
-  <div class="field">
-    <%= "ZIP Code" %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -2,45 +2,34 @@
 
 <h1>Listing Patients</h1>
 
-<div id="search">
-  <%= render :partial => 'patients/search' %>
-</div>
+<%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query
+    ) %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+    <%# See below for the Student.options_for_sorted_by presenter method %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <div>
+    <%= f.submit 'Filter' %>
+  </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Ptid</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Gender</th>
-      <th>Dob</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= patient.ptid %></td>
-        <td><%= patient.firstname %></td>
-        <td><%= patient.lastname %></td>
-        <td><%= patient.gender %></td>
-        <td><%= patient.dob %></td>
-        <td><%= patient.address %></td>
-        <td><%= patient.city %></td>
-        <td><%= patient.state %></td>
-        <td><%= patient.zip %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render(
+  :partial => 'patients/list',
+  :locals => { :patients => @patients }
+) %>
 
 <br>
 

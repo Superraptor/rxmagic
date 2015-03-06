@@ -1,29 +1,37 @@
-<%= form_for(@dispensed_med) do |f| %>
-  <% if @dispensed_med.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dispensed_med.errors.count, "error") %> prohibited this dispensed_med from being saved:</h2>
-
-      <ul>
-      <% @dispensed_med.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@dispensed_med) do |f| %>
+      <% if @dispensed_med.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@dispensed_med.errors.count, "error") %> prohibited this dispensed_med from being saved:</h2>
+    
+          <ul>
+          <% @dispensed_med.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :disdate %><br>
-    <%= f.date_select :disdate %>
+    
+      <div class="field">
+        <%= f.label "Date" %><br>
+        <%= f.date_select :disdate, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label "Patient ID" %><br>
+        <%= f.number_field :patientsid, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <!-- Change Data Type ... Long, Double? DONE -->
+        <!-- Look over how to print; print function -->
+        <%= f.label "Inventory ID" %><br>
+        <%= f.number_field :inventoryid, class: 'form-control' %>
+      </div>
+      <!-- QUANTITY --><!-- Inventories Table, Subtract from Current Stock -->
+      <!-- DIRECTIONS -->
+      <div class="actions"><!--Label: Dispense Medication -->
+        <%= f.submit "Dispense Medication", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :patientsid %><br>
-    <%= f.number_field :patientsid %>
-  </div>
-  <div class="field">
-    <%= f.label :inventoryid %><br>
-    <%= f.number_field :inventoryid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

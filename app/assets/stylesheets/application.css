@@ -10,43 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
-
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-// Core variables and mixins
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-// …
-// Components: common
-@import "bootstrap/dropdowns";
-
-/* universal */
-
-/* html { */
-/*  overflow-y: scroll; */
-/* } */
-
-body {
-  padding-top: 60px;
-}
-
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
+ 

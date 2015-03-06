@@ -1,49 +1,53 @@
-<%= form_for(@prescription) do |f| %>
-  <% if @prescription.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@prescription.errors.count, "error") %> prohibited this prescription from being saved:</h2>
-
-      <ul>
-      <% @prescription.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@prescription) do |f| %>
+      <% if @prescription.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@prescription.errors.count, "error") %> prohibited this prescription from being saved:</h2>
+    
+          <ul>
+          <% @prescription.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :rxid %><br>
-    <%= f.number_field :rxid %>
+    
+      <div class="field">
+        <%= f.label :rxid %><br>
+        <%= f.number_field :rxid, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :dose %><br>
+        <%= f.text_field :dose, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :frequencytaken %><br>
+        <%= f.text_field :frequencytaken, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :routetaken %><br>
+        <%= f.text_field :routetaken, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :dategiven %><br>
+        <%= f.date_select :dategiven, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :medicationsrxnormndc %><br>
+        <%= f.text_field :medicationsrxnormndc, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :providersdrid %><br>
+        <%= f.number_field :providersdrid, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :patientsptid %><br>
+        <%= f.number_field :patientsptid, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Create Prescription", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :dose %><br>
-    <%= f.text_field :dose %>
-  </div>
-  <div class="field">
-    <%= f.label :frequencytaken %><br>
-    <%= f.text_field :frequencytaken %>
-  </div>
-  <div class="field">
-    <%= f.label :routetaken %><br>
-    <%= f.text_field :routetaken %>
-  </div>
-  <div class="field">
-    <%= f.label :dategiven %><br>
-    <%= f.date_select :dategiven %>
-  </div>
-  <div class="field">
-    <%= f.label :medicationsrxnormndc %><br>
-    <%= f.text_field :medicationsrxnormndc %>
-  </div>
-  <div class="field">
-    <%= f.label :providersdrid %><br>
-    <%= f.number_field :providersdrid %>
-  </div>
-  <div class="field">
-    <%= f.label :patientsptid %><br>
-    <%= f.number_field :patientsptid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

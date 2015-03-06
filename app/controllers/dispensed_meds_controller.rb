@@ -25,11 +25,16 @@ class DispensedMedsController < ApplicationController
   # POST /dispensed_meds.json
   def create
     @dispensed_med = DispensedMed.new(dispensed_med_params)
-
+    
     respond_to do |format|
       if @dispensed_med.save
         format.html { redirect_to @dispensed_med, notice: 'Dispensed med was successfully created.' }
         format.json { render :show, status: :created, location: @dispensed_med }
+        
+        @inventoryid = params[:inventoryid]
+        
+        DispensedMeds.find(@inventoryid).inventory.update_attributes(:currentstock => CURRENTSTOCK - 1)
+
       else
         format.html { render :new }
         format.json { render json: @dispensed_med.errors, status: :unprocessable_entity }
