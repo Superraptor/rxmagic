@@ -1,3 +1,8 @@
+require "rx_nav"
+require "open-uri"
+require "json"
+require "semantics3"
+
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: [:show, :edit, :update, :destroy]
 
@@ -39,6 +44,61 @@ class InventoriesController < ApplicationController
   # POST /inventories.json
   def create
     @inventory = Inventory.new(inventory_params)
+    
+    # baseURI = "http://api.upcdatabase.org/json/ce20d5c94214033868cac3b7cd090e93"
+        
+    # result1 = open("#{baseURI}/#{@inventory.invid}").read
+    # rxName = JSON.parse(result1)
+    
+    # puts "THIS IS THE RX DATA: "
+    # puts rxName
+    # Use different UPC database.
+    
+    sem3 = Semantics3::Products.new('SEM3AF73B740374E5D0F7F156B048135F9BC', 'YTIzZjU3MzEzZGI2ZTYyMWU0NWFlYzI3YTc1NjQwNDQ')
+    
+    # Build the request
+    sem3.products_field( "upc", "#{@inventory.invid}" )
+    sem3.products_field( "field", ["name","gtins"] )
+    
+    # Run the request
+    productsHash = sem3.get_products()
+    
+    # View the results of the request
+    puts "THIS IS THE PRODUCT HASH: "
+    puts productsHash.to_json
+    
+    rxName = JSON.parse(productsHash.to_json)["results"][0]["name"]
+    
+    puts "THIS IS THE NAME: "
+    puts rxName
+    
+    if(MedicationsRxNorm.exists?(medname: "#{rxName}"))
+      @inventory.medicationsrxnormndc = MedicationsRxNorm.where(medname: "#{rxName}").pluck(:ndc)
+    else
+      @medications_rx_norm = MedicationsRxNorm.new()
+      @medications_rx_norm.medname = rxName
+      
+      rxNameNoSpaces = rxName.gsub(" ", "%20")
+      
+      result1 = open("http://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=#{rxNameNoSpaces}&maxEntries=4").read
+      rxcui = JSON.parse(result1)
+      
+      puts "THIS IS THE RXCUI: "
+      puts rxcui
+      puts rxcui["approximateGroup"]["candidate"][0]["rxcui"]
+      
+      result2 = open("http://rxnav.nlm.nih.gov/REST/rxcui/#{rxcui["approximateGroup"]["candidate"][0]["rxcui"]}/ndcs.json").read
+      ndcGroup = JSON.parse(result2)
+      
+      puts "THIS IS THE NDCGROUP: "
+      puts ndcGroup
+      puts ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
+      
+      @medications_rx_norm.ndc = ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
+      @inventory.medicationsrxnormndc = ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
+      
+      @medications_rx_norm.save
+    end
 
     respond_to do |format|
       if @inventory.save

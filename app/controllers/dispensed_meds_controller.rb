@@ -15,6 +15,8 @@ class DispensedMedsController < ApplicationController
   # GET /dispensed_meds/new
   def new
     @dispensed_med = DispensedMed.new
+    
+    @dispensed_med.patientsid = params[:ptid]
   end
 
   # GET /dispensed_meds/1/edit
@@ -31,9 +33,20 @@ class DispensedMedsController < ApplicationController
         format.html { redirect_to @dispensed_med, notice: 'Dispensed med was successfully created.' }
         format.json { render :show, status: :created, location: @dispensed_med }
         
-        @inventoryid = params[:inventoryid]
+        inventoryid = @dispensed_med.inventoryid
         
-        DispensedMeds.find(@inventoryid).inventory.update_attributes(:currentstock => CURRENTSTOCK - 1)
+        puts "THIS IS THE INVENTORY ID: "
+        puts inventoryid
+        
+        # Inventory.find_by(inventoryid).decrement(:currentstock, 1)
+        newcurrentstock = Inventory.where(invid: inventoryid).pluck(:currentstock)[0].to_i - 1
+        
+        puts "THIS IS THE CURRENT STOCK: "
+        puts newcurrentstock
+        
+        @inventory = Inventory.find_by(invid: inventoryid)
+        
+        @inventory.update(currentstock: "#{newcurrentstock}")
 
       else
         format.html { render :new }

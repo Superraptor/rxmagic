@@ -60,6 +60,7 @@
   <%= @patient.medicationsrxnormndc %>
 </p>
 
-<%= link_to('Scan New Medication', new_dispensed_med_path(patientid: @patient.ptid)) %> |
+<!-- Add Modal for Scan New Medication -->
+<%= link_to('Scan New Medication', new_dispensed_med_with_parameter_path(@patient.ptid, @patient.firstname, @patient.lastname)) %> |
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

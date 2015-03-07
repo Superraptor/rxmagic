@@ -14,20 +14,19 @@
       <% end %>
     
       <div class="field">
-        <%= f.label :patientsptid %><br>
-        <%= f.number_field :patientsptid, class: 'form-control' %>
+        <%= f.label :patientsid %><br>
+        <%= f.select :patientsptid, class: 'form-control' %>
       </div>
       <div class="field">
         <%= f.label :pharmmanufacturersphid %><br>
-        <%= f.number_field :pharmmanufacturersphid, class: 'form-control' %>
+        <%= f.select :pharmmanufacturersphid, options_for_select([['AbbVie', '1'], ['AZ&Me', '2'], ['Boehringer Ingelheim Cares Foundation, Inc.', '3'], ['Bristol-Myers Squibb', '4'], ['Dey Pharma, L.P.', '5'], ['Forest Pharmaceuticals', '6'], ['GlaxoSmithKline', '7'], ['Johnson & Johnson', '8'], ['Lily Cares', '9'], ['Merck', '10'], ['Novo Nordisk', '11'], ['Pfizer RxPathways', '12'], ['Sanofi Patient Connection', '13']], @application.pharmmanufacturersphid) %>
       </div>
       <div class="field">
         <%= f.label :medicationsrxnormndc %><br>
-        <%= f.text_field :medicationsrxnormndc, class: 'form-control' %>
-      </div>
+        <%= f.select :medicationsrxnormndc, options_for_select([['Depakote', '1'], ['Depakote ER', '2'], ['Synthroid', '3'], ['Crestor', '4'], ['Nexium', '5'], ['Seroquel', '6'], ['Dutoprol', '7'], ['Spiriva', '8'], ['HandiHaler', '3'], ['Abilify', '4'], ['EpiPen', '5'], ['Tudorza Pressair', '6'], ['Advair', '7'], ['Flovent', '8'], ['Lamictal', '9'], ['Ventolin HFA', '10'], ['Risperdal', '11'], ['Cialis', '12'], ['Cymbalta', '13'], ['Humalog', '14'], ['Humulin', '15'], ['Prozac', '16'], ['Strattera', '17'], ['Clarinex', '18'], ['Maxalt', '19'], ['Nasonex', '20'], ['Proventil HFA', '21'], ['Remeron', '22'], ['Levemir', '23'], ['Novolin', '24'], ['Novolog', '25'], ['Effexor XR', '26'], ['Procardia XL', '27'], ['Protonix DR', '28'], ['Viagra', '29'], ['Lantus', '30']] , @application.medicationsrxnormndc) %>
       <div class="field">
         <%= f.label :appstatus %><br>
-        <%= f.text_field :appstatus, class: 'form-control' %>
+        <%= f.select :appstatus, options_for_select([['Holding', 'Holding'], ['Progress', 'Progress'], ['Pending', 'Pending'], ['Accepted', 'Accepted'], ['Received', 'Received']], @application.appstatus) %>
       </div>
       <div class="field">
         <%= f.label :dateinit %><br>

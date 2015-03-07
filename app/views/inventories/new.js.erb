@@ -1,0 +1,6 @@
+$modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-heading');
+$modalHeading.html("Please Scan Barcode");
+$modalBody.html("<%= escape_javascript(render @inventory) %>");
+$modal.modal();

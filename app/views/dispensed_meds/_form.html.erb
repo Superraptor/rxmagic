@@ -21,6 +21,10 @@
         <%= f.label "Patient ID" %><br>
         <%= f.number_field :patientsid, class: 'form-control' %>
       </div>
+      <div>
+        <p>Patient Name</p>
+        <!-- <p><%= :firstname %> <%= :lastname %></p> FIX ASAP -->
+      </div>
       <div class="field">
         <!-- Change Data Type ... Long, Double? DONE -->
         <!-- Look over how to print; print function -->
@@ -29,6 +33,10 @@
       </div>
       <!-- QUANTITY --><!-- Inventories Table, Subtract from Current Stock -->
       <!-- DIRECTIONS -->
+      <div class="field">
+        <label>Quantity</label><br>
+        <input class="form-control" type="number" min="0" value="1" />
+      </div>
       <div class="actions"><!--Label: Dispense Medication -->
         <%= f.submit "Dispense Medication", class: "btn btn-primary" %>
       </div>

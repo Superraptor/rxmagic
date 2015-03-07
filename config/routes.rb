@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   
+  
+  get '*path/home', :to => redirect('/')
+  # get '*path' => redirect('/')
+  
   resources :applications
 
   resources :patient_applications
@@ -17,6 +21,7 @@ Rails.application.routes.draw do
   resources :inventories
 
   resources :dispensed_meds
+  get "/dispensed_meds/new/:ptid" => "dispensed_meds#new", :as => :new_dispensed_med_with_parameter
 
   resources :providers
 
