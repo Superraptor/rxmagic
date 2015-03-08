@@ -14,31 +14,31 @@
       <% end %>
     
       <div class="field">
-        <%= f.label :invid %><br>
-        <%= f.number_field :invid, class: 'form-control' %>
+        <%= f.label "Inventory ID" %><br>
+        <%= f.number_field :invid, class: 'form-control', :autofocus => true %>
       </div>
       <div class="field">
-        <%= f.label :lotno %><br>
+        <%= f.label "Lot Number" %><br>
         <%= f.text_field :lotno, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :expdate %><br>
+        <%= f.label "Expiration Date" %><br>
         <%= f.date_select :expdate, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :currentstock %><br>
+        <%= f.label "Current Stock" %><br>
         <%= f.text_field :currentstock, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :inventorytype %><br>
+        <%= f.label "Inventory Type" %><br>
         <%= f.text_field :inventorytype, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :datetoreorder %><br>
+        <%= f.label "Date to Reorder" %><br>
         <%= f.date_select :datetoreorder, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :medicationsrxnormndc %><br>
+        <%= f.label "Medication RxNorm NDC" %><br>
         <%= f.text_field :medicationsrxnormndc, class: 'form-control' %>
       </div>
       <div class="actions">

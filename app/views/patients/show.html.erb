@@ -47,20 +47,30 @@
 
 <p>
   <strong>Dispensed Medications:</strong>
-  <%= @patient.dispensed_meds %>
+  <% @patient.dispensed_meds.each do |dispensed| %>
+    <%= dispensed %>;
+  <% end %>
 </p>
 
 <p>
   <strong>Inventory:</strong>
-  <%= @patient.inventory %>
+  <% @patient.inventory.each do |inv| %>
+    <% inv.each do |i| %>
+      <%= i %>; 
+    <% end %>
+  <% end %>
 </p>
 
 <p>
   <strong>Medicine Name:</strong>
-  <%= @patient.medicationsrxnormndc %>
+  <% @patient.medicationsrxnormndc.each do |medication| %>
+    <% medication.each do |med| %>
+      <%= med %>; 
+    <% end %>
+  <% end %>
 </p>
 
 <!-- Add Modal for Scan New Medication -->
-<%= link_to('Scan New Medication', new_dispensed_med_with_parameter_path(@patient.ptid, @patient.firstname, @patient.lastname)) %> |
+<%= link_to('Scan New Medication', new_dispensed_med_with_parameter_path(@patient.ptid)) %> |
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

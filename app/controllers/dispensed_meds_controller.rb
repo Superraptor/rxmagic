@@ -45,14 +45,59 @@ class DispensedMedsController < ApplicationController
         puts newcurrentstock
         
         @inventory = Inventory.find_by(invid: inventoryid)
+
+        @patient = Patient.find_by(ptid: @dispensed_med.patientsid)
+
+        barcode = "#{@inventory.invid}"
+        patientAddress = "#{@patient.address}, #{@patient.city}, #{@patient.state} #{@patient.zip}"
+        location = "LOCATION"
         
-        @inventory.update(currentstock: "#{newcurrentstock}")
+        @medicationsrxnormndc = MedicationsRxNorm.find_by(ndc: @inventory.medicationsrxnormndc)
+        
+        if(@inventory.currentstock < 0)
+          flash.now[:alert] = 'ERROR: Current stock cannot be negative. Medication not dispensed. Please update inventory and try again.'
+          
+        elsif(@inventory.currentstock < @medicationsrxnormndc.minstock)
+          @inventory.update(currentstock: "#{newcurrentstock}")
+          flash.now[:alert] = 'Current stock is now less than minimum stock. Please reorder.'
+          @inventory.update(currentstock: "#{newcurrentstock}")
+          @dispensed_med.generate_barcode(barcode, @patient.firstname, @patient.lastname, @patient.dob, @patient.gender, patientAddress, location)
+
+        else
+          @inventory.update(currentstock: "#{newcurrentstock}")
+          @dispensed_med.generate_barcode(barcode, @patient.firstname, @patient.lastname, @patient.dob, @patient.gender, patientAddress, location)
+
+        end
 
       else
+        
         format.html { render :new }
         format.json { render json: @dispensed_med.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  #!/usr/bin/env ruby
+
+  def generate_barcode(barcode, fname, lname, dob, gender, address, location)
+  
+    result = "\nN\n" +
+        "q801\n" + 
+        "Q329,026\n" +
+        "ZT\n" +
+        "B50,185,0,1,4,10,110,N,\"#{barcode}\"\n" +
+        "A35,30,0,2,2,2,N,\"#{fname} #{lname}\"\n" +
+        "A35,76,0,2,2,2,N,\"#{barcode} #{dob}(#{gender})\"\n" +
+        "A35,122,0,2,2,2,N,\"#{address}\"\n" + 
+        "A35,168,0,2,2,2,N,\"#{location}\"\n" +
+        "P1\n" 
+  
+    file = File.open("./#{barcode}.lbl", "w")
+    
+    file.write(result)
+    
+    file.close
+  
   end
 
   # PATCH/PUT /dispensed_meds/1

@@ -1,5 +1,12 @@
 class DispensedMed < ActiveRecord::Base
   
+  def firstname
+    Patient.where(ptid: patientsid).pluck(:firstname)
+  end
+  
+  def lastname
+    Patient.where(ptid: patientsid).pluck(:lastname)
+  end
   
   has_many :dispensed_med_patients
   has_many :patients, :through => :dispensed_med_patients

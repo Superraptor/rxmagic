@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@patient) do |f| %>
@@ -29,9 +32,17 @@
         <%= "Gender" %><br>
         <%= f.text_field :gender, class: 'form-control' %>
       </div>
-      <div class="field">
+      <div class="field" id="dob-field">
         <%= "Date of Birth" %><br>
-        <%= f.text_field :dob, class: 'form-control' %>
+        <%= f.text_field :dob, class: 'form-control', class: 'datepicker', 'data-behaviour' => 'datepicker' %>
+        <script type="text/javascript">
+          $('[data-behaviour~=datepicker]').datepicker();
+        </script>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.datepicker').datepicker();
+          });
+        </script>
       </div>
       <div class="field">
         <%= "Address" %><br>

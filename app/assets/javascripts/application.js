@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require jquery-ui
 //= require filterrific/filterrific-jquery
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require_tree .
 
 var navbar = $('#bs-example-navbar-collapse-1');
@@ -26,4 +27,11 @@ $('button.navbar-toggle').click(function() {
 
 $('ul.nav li').click(function() {
     navbar.removeClass('in');
+});
+
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+});
+
+$('#dob-field input').datepicker({
 });

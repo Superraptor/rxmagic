@@ -22,8 +22,8 @@
         <%= f.number_field :patientsid, class: 'form-control' %>
       </div>
       <div>
-        <p>Patient Name</p>
-        <!-- <p><%= :firstname %> <%= :lastname %></p> FIX ASAP -->
+        <p><b>Patient Name</b></p><!-- IT WORKED!!!!!!! -->
+        <p><% @dispensed_med.firstname.each do |firstname| %><%= firstname %> <% end %><% @dispensed_med.lastname.each do |lastname| %><%= lastname %><% end %></p>
       </div>
       <div class="field">
         <!-- Change Data Type ... Long, Double? DONE -->
@@ -35,10 +35,10 @@
       <!-- DIRECTIONS -->
       <div class="field">
         <label>Quantity</label><br>
-        <input class="form-control" type="number" min="0" value="1" />
+        <input class="form-control" type="number" min="1" value="1" />
       </div>
       <div class="actions"><!--Label: Dispense Medication -->
-        <%= f.submit "Dispense Medication", class: "btn btn-primary" %>
+        <%= f.submit "Print Label", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
