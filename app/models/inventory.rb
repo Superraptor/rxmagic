@@ -66,6 +66,12 @@ class Inventory < ActiveRecord::Base
     ]
   end
   
+  def minstock
+    minstock = MedicationsRxNorm.where(ndc: medicationsrxnormndc).pluck(:minstock)
+    
+    minstock
+  end
+  
   has_many :dispensed_med_inventories
   has_many :dispensed_meds, :through => :dispensed_med_inventories
 

@@ -8,24 +8,27 @@
   
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-lg-3"><a type="button" href="patients/new" class="btn btn-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Register a patient</a></div>
-      <div class="col-xs-12 col-sm-4 col-lg-3"><a type="button" href="patients" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find a patient</a></div>
-      <div class="col-xs-12 col-sm-4 col-lg-3"><a type="button" href="patients" class="btn btn-primary"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Dispense medication</a></div>
-      <div class="col-xs-12 col-sm-4 col-lg-3"><div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <div class="col-xs-12 col-sm-12 col-lg-6">
+        <p><% expiredApplications %></p>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-lg-6"><a type="button" href="patients/new" class="btn btn-success"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Register a patient</a></div>
+      <div class="col-xs-12 col-sm-4 col-lg-6"><a type="button" href="patients" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find a patient</a></div>
+      <div class="col-xs-12 col-sm-4 col-lg-6"><a type="button" href="patients" class="btn btn-success"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Dispense medication</a></div>
+      <div class="col-xs-12 col-sm-4 col-lg-6"><div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
           <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> PAP Management <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="applications/new">Initiate Application</a></li>
+          <li><a href="patients">Initiate Application</a></li>
           <li><a href="applications">Update Application Status</a></li>
         </ul>
       </div></div>
-      <div class="col-xs-12 col-sm-4 col-lg-3"><div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <div class="col-xs-12 col-sm-4 col-lg-6"><div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Inventory Management <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="#">General Inventory</a></li>
+          <li><a href="inventories/general">General Inventory</a></li>
           <li><a href="inventories">PAP Inventory</a></li><!-- Bring up modal --><!-- Redirect modal to inventories/new with invid already filled -->
         </ul>
       </div></div>

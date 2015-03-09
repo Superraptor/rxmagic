@@ -1,27 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Patientsptid:</strong>
+  <strong>Patients ID:</strong>
   <%= @application.patientsptid %>
 </p>
 
 <p>
-  <strong>Pharmmanufacturersphid:</strong>
+  <strong>Patient Name:</strong>
+  <% @application.firstname.each do |firstname| %><%= firstname %> <% end %><% @application.lastname.each do |lastname| %><%= lastname %><% end %>
+</p>
+
+<p>
+  <strong>Pharmaceutical Manufacturer ID:</strong>
   <%= @application.pharmmanufacturersphid %>
 </p>
 
 <p>
-  <strong>Medicationsrxnormndc:</strong>
+  <strong>Pharmaceutical Manufacturer:</strong>
+  <% @application.manufacturer.each do |manufacturer| %><%= manufacturer %> <% end %>
+</p>
+
+<p>
+  <strong>Medication RxNorm NDC:</strong>
   <%= @application.medicationsrxnormndc %>
 </p>
 
 <p>
-  <strong>Appstatus:</strong>
+  <strong>Medicine Name:</strong>
+  <% @application.medname.each do |medname| %><%= medname %> <% end %>
+</p>
+
+<p>
+  <strong>Application Status:</strong>
   <%= @application.appstatus %>
 </p>
 
 <p>
-  <strong>Dateinit:</strong>
+  <strong>Date Initiated:</strong>
   <%= @application.dateinit %>
 </p>
 

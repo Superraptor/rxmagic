@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Ptid:</strong>
+  <strong>Patient ID:</strong>
   <%= @patient.ptid %>
 </p>
 
@@ -72,5 +72,6 @@
 
 <!-- Add Modal for Scan New Medication -->
 <%= link_to('Scan New Medication', new_dispensed_med_with_parameter_path(@patient.ptid)) %> |
+<%= link_to('Initiate Application', new_application_with_parameter_path(@patient.ptid)) %> |
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

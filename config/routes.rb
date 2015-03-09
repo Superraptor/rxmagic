@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # get '*path' => redirect('/')
   
   resources :applications
+  get "/applications/new/:ptid" => "applications#new", :as => :new_application_with_parameter
 
   resources :patient_applications
 
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   resources :medications_rx_norms
 
   resources :inventories
+  get "/inventories/general", :to => redirect('/inventories/general')
 
   resources :dispensed_meds
   get "/dispensed_meds/new/:ptid" => "dispensed_meds#new", :as => :new_dispensed_med_with_parameter

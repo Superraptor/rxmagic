@@ -22,15 +22,15 @@
         <%= f.number_field :patientsid, class: 'form-control' %>
       </div>
       <div>
-        <p><b>Patient Name</b></p><!-- IT WORKED!!!!!!! -->
+        <label>Patient Name</label><!-- IT WORKED!!!!!!! -->
         <p><% @dispensed_med.firstname.each do |firstname| %><%= firstname %> <% end %><% @dispensed_med.lastname.each do |lastname| %><%= lastname %><% end %></p>
       </div>
       <div class="field">
-        <!-- Change Data Type ... Long, Double? DONE -->
         <!-- Look over how to print; print function -->
         <%= f.label "Inventory ID" %><br>
-        <%= f.number_field :inventoryid, class: 'form-control' %>
+        <%= f.number_field :inventoryid, class: 'form-control', :autofocus => true %>
       </div>
+      <div class="field"
       <!-- QUANTITY --><!-- Inventories Table, Subtract from Current Stock -->
       <!-- DIRECTIONS -->
       <div class="field">

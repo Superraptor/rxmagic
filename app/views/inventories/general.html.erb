@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Inventories</h1>
+
+<%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
+  <div>
+    Search
+    <%= f.text_field(
+      :search_query
+    ) %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <div>
+    <%= f.submit 'Filter' %>
+  </div>
+<% end %>
+
+<%= render(
+  partial: 'inventories/listgeneral',
+  locals: { inventories: @inventories }
+) %>
+
+<%= link_to 'New Inventory', new_inventory_path %>

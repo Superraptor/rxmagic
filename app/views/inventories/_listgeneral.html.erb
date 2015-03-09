@@ -5,15 +5,14 @@
     <%= page_entries_info inventories %>
   </div>
 
-  <table class="table table-striped">
+  <table>
     <tr>
       <th>Inventory ID</th>
       <th>Lot Number</th>
       <th>Expiration Date</th>
-      <th>Current Stock</th>
-      <th>Inventory Type</th>
       <th>Date to Reorder</th>
-      <th>Medications Rx Norm NDC</th>
+      <th>Medications RxNorm NDC</th>
+      <th>Minimum Stock</th>
       <th colspan="3"></th>
     </tr>
     <% @inventories.each do |inventory| %>
@@ -21,10 +20,9 @@
         <td><%= inventory.invid %></td>
         <td><%= inventory.lotno %></td>
         <td><%= inventory.expdate %></td>
-        <td><%= inventory.currentstock %></td>
-        <td><%= inventory.inventorytype %></td>
         <td><%= inventory.datetoreorder %></td>
         <td><%= inventory.medicationsrxnormndc %></td>
+        <td><%= inventory.minstock %></td>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
         <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>

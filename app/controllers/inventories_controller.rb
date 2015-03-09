@@ -67,44 +67,56 @@ class InventoriesController < ApplicationController
     puts "THIS IS THE PRODUCT HASH: "
     puts productsHash.to_json
     
-    rxName = JSON.parse(productsHash.to_json)["results"][0]["name"]
-    
-    puts "THIS IS THE NAME: "
-    puts rxName
-    
-    if(MedicationsRxNorm.exists?(medname: "#{rxName}"))
-      @inventory.medicationsrxnormndc = MedicationsRxNorm.where(medname: "#{rxName}").pluck(:ndc)
-    else
-      @medications_rx_norm = MedicationsRxNorm.new()
-      @medications_rx_norm.medname = rxName
+    if(JSON.parse(productsHash.to_json)["total_results_count"] != 0)
+      rxName = JSON.parse(productsHash.to_json)["results"][0]["name"]
       
-      rxNameNoSpaces = rxName.gsub(" ", "%20")
+      puts "THIS IS THE NAME: "
+      puts rxName
       
-      result1 = open("http://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=#{rxNameNoSpaces}&maxEntries=4").read
-      rxcui = JSON.parse(result1)
-      
-      puts "THIS IS THE RXCUI: "
-      puts rxcui
-      puts rxcui["approximateGroup"]["candidate"][0]["rxcui"]
-      
-      result2 = open("http://rxnav.nlm.nih.gov/REST/rxcui/#{rxcui["approximateGroup"]["candidate"][0]["rxcui"]}/ndcs.json").read
-      ndcGroup = JSON.parse(result2)
-      
-      puts "THIS IS THE NDCGROUP: "
-      puts ndcGroup
-      puts ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
-      
-      @medications_rx_norm.ndc = ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
-      @inventory.medicationsrxnormndc = ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
-      
-      @medications_rx_norm.save
-    end
-
-    respond_to do |format|
-      if @inventory.save
-        format.html { redirect_to @inventory, notice: 'Inventory was successfully created.' }
-        format.json { render :show, status: :created, location: @inventory }
+      if(MedicationsRxNorm.exists?(medname: "#{rxName}"))
+        @inventory.medicationsrxnormndc = MedicationsRxNorm.where(medname: "#{rxName}").pluck(:ndc)
       else
+        @medications_rx_norm = MedicationsRxNorm.new()
+        @medications_rx_norm.medname = rxName
+        
+        rxNameNoSpaces = rxName.gsub(" ", "%20")
+        
+        result1 = open("http://rxnav.nlm.nih.gov/REST/approximateTerm.json?term=#{rxNameNoSpaces}&maxEntries=4").read
+        rxcui = JSON.parse(result1)
+        
+        if(rxcui["total_results_count"] == 0)
+          flash.now[:alert] = "UPC could not be found in our current database. Please enter manually. We are working on expanding our UPC database."
+        else
+          puts "THIS IS THE RXCUI: "
+          puts rxcui
+          puts rxcui["approximateGroup"]["candidate"][0]["rxcui"]
+          
+          result2 = open("http://rxnav.nlm.nih.gov/REST/rxcui/#{rxcui["approximateGroup"]["candidate"][0]["rxcui"]}/ndcs.json").read
+          ndcGroup = JSON.parse(result2)
+          
+          puts "THIS IS THE NDCGROUP: "
+          puts ndcGroup
+          puts ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
+          
+          @medications_rx_norm.ndc = ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
+          @inventory.medicationsrxnormndc = ndcGroup["ndcGroup"]["ndcList"]["ndc"][0]
+          
+          @medications_rx_norm.save
+        end
+      end
+  
+      respond_to do |format|
+        if @inventory.save
+          format.html { redirect_to @inventory, notice: 'Inventory was successfully created.' }
+          format.json { render :show, status: :created, location: @inventory }
+        else
+          format.html { render :new }
+          format.json { render json: @inventory.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      flash.now[:alert] = "UPC could not be found in our current database. Please enter manually. We are working on expanding our UPC database."
+      respond_to do |format|
         format.html { render :new }
         format.json { render json: @inventory.errors, status: :unprocessable_entity }
       end

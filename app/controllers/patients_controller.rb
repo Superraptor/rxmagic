@@ -28,6 +28,7 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
+    @patient.ptid = Patient.maximum(:ptid).next
   end
 
   # GET /patients/1/edit

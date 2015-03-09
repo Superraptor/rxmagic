@@ -1,4 +1,20 @@
 class Application < ActiveRecord::Base
+  def firstname
+    Patient.where(ptid: patientsptid).pluck(:firstname)
+  end
+  
+  def lastname
+    Patient.where(ptid: patientsptid).pluck(:lastname)
+  end
+  
+  def manufacturer
+    PharmManufacturer.where(manufacturer: pharmmanufacturersphid).pluck(:manufacturer)
+  end
+  
+  def medname
+    MedicationsRxNorm.where(ndc: medicationsrxnormndc).pluck(:medname)
+  end
+  
   has_many :application_medications_rx_norms
   has_many :medications_rx_norms, :through => :application_medications_rx_norms
   

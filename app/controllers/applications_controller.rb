@@ -15,6 +15,8 @@ class ApplicationsController < ApplicationController
   # GET /applications/new
   def new
     @application = Application.new
+    
+    @application.patientsptid = params[:ptid]
   end
 
   # GET /applications/1/edit
