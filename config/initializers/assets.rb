@@ -9,3 +9,7 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( deployJava.js )
+Rails.application.config.assets.precompile += %w( jquery-1.10.2.js )
+Rails.application.config.assets.precompile += %w( html2canvas.js )
+Rails.application.config.assets.precompile += %w( jquery.plugin.html2canvas.js )

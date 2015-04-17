@@ -46,6 +46,18 @@ gem 'semantics3'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'barby'
+gem 'chunky_png'
+gem 'prawn'
+
+gem 'public_activity'
+gem 'whenever', :require => false
+
+gem 'rghost'
+gem 'rghost_barcode'
+
+gem 'paloma'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

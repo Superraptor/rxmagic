@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
+  before_action :load_activities, only: [:index, :show, :new, :edit]
 
   # GET /applications
   # GET /applications.json
@@ -72,5 +73,9 @@ class ApplicationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_params
       params.require(:application).permit(:patientsptid, :pharmmanufacturersphid, :medicationsrxnormndc, :appstatus, :dateinit)
+    end
+    
+    def load_activities
+      @activities = PublicActivity::Activity.order('created_at DESC')
     end
 end

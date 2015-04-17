@@ -4,17 +4,20 @@
 
 <%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
   <div>
-    Search
+    <%= "Search" %><br>
     <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
     <%= f.text_field(
-      :search_query
+      :search_query, class: 'form-control'
     ) %>
   </div>
+  <br>
+  <br>
   <div>
-    Sorted by
-    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+    <%= "Sorted by" %><br>
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { class: 'form-control' }) %>
     <%# See below for the Student.options_for_sorted_by presenter method %>
   </div>
+  <br>
   <div>
     <%= link_to(
       'Reset filters',
@@ -22,8 +25,10 @@
     ) %>
   </div>
   <div>
-    <%= f.submit 'Filter' %>
+    <%= f.submit 'Filter', class: 'btn btn-default' %>
   </div>
+  <br>
+  <br>
 <% end %>
 
 <%= render(

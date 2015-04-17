@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Inventories</h1>
+<h1>Listing General Inventories</h1>
 
 <%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
   <div>
-    Search
+    <%= "Search" %><br>
     <%= f.text_field(
-      :search_query
+      :search_query, class: 'form-control'
     ) %>
   </div>
+  <br>
   <div>
-    Sorted by
-    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+    <%= "Sorted by" %><br>
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], {}, { class: 'form-control' }) %>
   </div>
+  <br>
   <div>
     <%= link_to(
       'Reset filters',
@@ -20,8 +22,9 @@
     ) %>
   </div>
   <div>
-    <%= f.submit 'Filter' %>
+    <%= f.submit 'Filter', class: 'btn btn-default' %>
   </div>
+  <br>
 <% end %>
 
 <%= render(
@@ -29,4 +32,4 @@
   locals: { inventories: @inventories }
 ) %>
 
-<%= link_to 'New Inventory', new_inventory_path %>
+<%= link_to 'New Inventory', new_inventory_path(:inventorytype => "General") %>

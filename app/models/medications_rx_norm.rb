@@ -1,4 +1,7 @@
 class MedicationsRxNorm < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked
+  
   has_many :application_medications_rx_norms
   has_many :applications, :through => :application_medications_rx_norms
 

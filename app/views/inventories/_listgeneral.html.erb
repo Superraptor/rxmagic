@@ -5,7 +5,7 @@
     <%= page_entries_info inventories %>
   </div>
 
-  <table>
+  <table class="table table-striped">
     <tr>
       <th>Inventory ID</th>
       <th>Lot Number</th>
@@ -22,7 +22,7 @@
         <td><%= inventory.expdate %></td>
         <td><%= inventory.datetoreorder %></td>
         <td><%= inventory.medicationsrxnormndc %></td>
-        <td><%= inventory.minstock %></td>
+        <td><% inventory.minstock.each do |minstock| %><%= minstock %><% end %></td>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
         <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>

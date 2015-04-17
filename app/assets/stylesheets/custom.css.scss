@@ -1,12 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+a.btn:visited { color:#FFF; }
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 $gray-light: #777;
 $gray: #000;
 $gray-darker: #A9A9A9;
+
+.rowitem {
+  height: 200px;
+  padding: 5px;
+}
 
 /* universal */
 
@@ -75,7 +82,7 @@ p {
 }
 
 .btn:visited { 
-  color: #FFF
+  color: white;
 }
 
 /* footer */
@@ -113,3 +120,16 @@ table { border-collapse: collapse; border-spacing: 0; }
 th, td { vertical-align: top; }
   
 table { margin: 0 auto; }
+
+
+
+
+
+
+
+
+
+table.barby-barcode { border-spacing: 0; }
+tr.barby-row {}
+td.barby-cell { width: 3px; height: 100px; }
+td.barby-cell.on { background: #000; }

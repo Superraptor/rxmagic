@@ -1,0 +1,9 @@
+<li class="list-group-item">
+  <span class="glyphicon glyphicon-plus"></span>
+  <small class="text-muted"><%= a.created_at.strftime('%H:%M:%S %-d %B %Y') %></small><br/>
+  <% if a.trackable %>
+    <%= a.trackable.firstname %> <%= a.trackable.lastname %> (<%= link_to a.trackable.ptid, patient_path(a.trackable) %>) was registered.
+  <% else %>
+    A patient that is currently deleted was added.
+  <% end %>
+</li>

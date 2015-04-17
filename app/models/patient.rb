@@ -1,5 +1,8 @@
 class Patient < ActiveRecord::Base
   
+  include PublicActivity::Model
+  tracked
+  
   filterrific :default_filter_params => { :sorted_by => 'created_at_desc' },
               :available_filters => %w[
                 sorted_by
@@ -140,4 +143,5 @@ class Patient < ActiveRecord::Base
   validates_presence_of :city
   validates_presence_of :state
   validates_length_of :zip, minimum: 5, too_short: '. Please enter at least 5 characters.'
+  
 end

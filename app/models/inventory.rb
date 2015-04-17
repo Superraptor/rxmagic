@@ -1,4 +1,6 @@
 class Inventory < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked
   
   filterrific :default_filter_params => { :sorted_by => 'created_at_desc' },
               :available_filters => %w[
@@ -72,6 +74,25 @@ class Inventory < ActiveRecord::Base
     minstock
   end
   
+  def medname
+    medname = MedicationsRxNorm.where(ndc: medicationsrxnormndc).pluck(:medname)
+    
+    medname
+  end
+  
+  def generalInventory
+    @generalInventory = Inventory.where(:inventorytype => 'General')
+    
+    @generalInventory
+  end
+  
+  def papInventory
+    @papInventory = Inventory.where(:inventorytype => 'PAP')
+    
+    @papInventory
+  end
+  
+  
   has_many :dispensed_med_inventories
   has_many :dispensed_meds, :through => :dispensed_med_inventories
 
@@ -82,7 +103,6 @@ class Inventory < ActiveRecord::Base
   validates_presence_of :invid
   validates :invid, :numericality => { :greater_than_or_equal_to => 1 }
   validates_presence_of :lotno
-  validates :lotno, :numericality => { :greater_than_or_equal_to => 1 }
   validates_presence_of :currentstock
   validates :currentstock, :numericality => { :greater_than_or_equal_to => 0 }
   validates_presence_of :inventorytype

@@ -15,6 +15,7 @@ class ProvidersController < ApplicationController
   # GET /providers/new
   def new
     @provider = Provider.new
+    @provider.drid = Provider.maximum(:drid).next
   end
 
   # GET /providers/1/edit

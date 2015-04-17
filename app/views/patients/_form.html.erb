@@ -18,7 +18,7 @@
     
       <div class="field">
         <%= "Patient ID" %><br>
-        <%= f.number_field :ptid, class: 'form-control' %>
+        <%= f.number_field :ptid, class: 'form-control', :readonly => true %>
       </div>
       <div class="field">
         <%= "First Name" %><br>
@@ -30,7 +30,7 @@
       </div>
       <div class="field">
         <%= "Gender" %><br>
-        <%= f.text_field :gender, class: 'form-control' %>
+        <%= f.select :gender, options_for_select([['Male', 'Male'], ['Female', 'Female'], ['Other', 'Other']], @patient.gender) %>
       </div>
       <div class="field" id="dob-field">
         <%= "Date of Birth" %><br>

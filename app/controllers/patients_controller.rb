@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :load_activities, only: [:index, :show, :new, :edit]
 
   # GET /patients
   # GET /patients.json
@@ -28,7 +29,7 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
-    @patient.ptid = Patient.maximum(:ptid).next
+    @patient.ptid = Patient.maximum(:ptid).to_i.next
   end
 
   # GET /patients/1/edit
@@ -85,5 +86,9 @@ class PatientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
       params.require(:patient).permit(:ptid, :firstname, :lastname, :gender, :dob, :address, :city, :state, :zip)
+    end
+    
+    def load_activities
+      @activities = PublicActivity::Activity.order('created_at DESC')
     end
 end

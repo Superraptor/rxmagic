@@ -1,4 +1,7 @@
 class Application < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked
+  
   def firstname
     Patient.where(ptid: patientsptid).pluck(:firstname)
   end
@@ -8,10 +11,14 @@ class Application < ActiveRecord::Base
   end
   
   def manufacturer
-    PharmManufacturer.where(manufacturer: pharmmanufacturersphid).pluck(:manufacturer)
+    puts PharmManufacturer.where(manufacturer: pharmmanufacturersphid).pluck(:manufacturer)
+    
+    PharmManufacturer.where(phid: pharmmanufacturersphid).pluck(:manufacturer)
   end
   
   def medname
+    puts MedicationsRxNorm.where(ndc: medicationsrxnormndc).pluck(:medname)
+    
     MedicationsRxNorm.where(ndc: medicationsrxnormndc).pluck(:medname)
   end
   

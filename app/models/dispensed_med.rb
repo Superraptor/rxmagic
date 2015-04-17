@@ -1,4 +1,7 @@
 class DispensedMed < ActiveRecord::Base
+
+  include PublicActivity::Model
+  tracked
   
   def firstname
     Patient.where(ptid: patientsid).pluck(:firstname)
@@ -6,6 +9,12 @@ class DispensedMed < ActiveRecord::Base
   
   def lastname
     Patient.where(ptid: patientsid).pluck(:lastname)
+  end
+  
+  def medname
+    inventoryndc = Inventory.where(invid: inventoryid).pluck(:medicationsrxnormndc)
+    
+    MedicationsRxNorm.where(ndc: inventoryndc).pluck(:medname)
   end
   
   has_many :dispensed_med_patients

@@ -11,8 +11,9 @@
  * file per style scope.
  *
  *= require bootstrap
- *= require bootstrap-datepicker
+ *= require bootstrap-datepicker3
  *= require_tree .
  *= require_self
  */
  
+.btn:visited { color:#FFF; }

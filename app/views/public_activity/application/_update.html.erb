@@ -1,0 +1,9 @@
+<li class="list-group-item">
+  <span class="glyphicon glyphicon-edit"></span>
+  <small class="text-muted"><%= a.created_at.strftime('%H:%M:%S %-d %B %Y') %></small><br/>
+  <% if a.trackable %>
+    <%= a.trackable.firstname[0] %> <%= a.trackable.lastname[0] %>'s (<%= a.trackable.patientsptid %>) application for <%= a.trackable.medname[0] %> (<%= a.trackable.medicationsrxnormndc %>) with <%= a.trackable.manufacturer[0] %> (<%= a.trackable.pharmmanufacturersphid %>) was updated to <%= a.trackable.appstatus.downcase %>.
+  <% else %>
+    An application that is currently deleted was edited.
+  <% end %>
+</li>

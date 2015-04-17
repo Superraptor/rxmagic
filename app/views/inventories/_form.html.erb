@@ -15,7 +15,7 @@
     
       <div class="field">
         <%= f.label "Inventory ID" %><br>
-        <%= f.number_field :invid, class: 'form-control', :autofocus => true %>
+        <%= f.number_field :invid, class: 'form-control', :readonly => true %>
       </div>
       <div class="field">
         <%= f.label "Lot Number" %><br>
@@ -31,7 +31,7 @@
       </div>
       <div class="field">
         <%= f.label "Inventory Type" %><br>
-        <%= f.text_field :inventorytype, class: 'form-control' %>
+        <%= f.text_field :inventorytype, class: 'form-control', :readonly => true %>
       </div>
       <div class="field">
         <%= f.label "Date to Reorder" %><br>

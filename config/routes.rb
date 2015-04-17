@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  
+
   root             'static_pages#home'
   get 'home'    => 'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   
+  # get 'rghost-39' => 'static_pages#redirectpage'
+  get '/rghost-39', :to => redirect('/redirectpage.html')
   
-  get '*path/home', :to => redirect('/')
+  
+  get 'home', :to => redirect('/')
   # get '*path' => redirect('/')
   
   resources :applications
@@ -18,9 +21,12 @@ Rails.application.routes.draw do
   resources :pharm_manufacturers
 
   resources :medications_rx_norms
-
+  
+  get "/inventories/pap", :to => 'inventories#index'
+  get "/inventories/general", :to => 'inventories#general'
+  # get "/inventories/general/new" => "inventories#new", :as => :new_inventory_with_parameter
+  get "/inventories/new" => "inventories#new", :as => :new_inventory_with_parameter
   resources :inventories
-  get "/inventories/general", :to => redirect('/inventories/general')
 
   resources :dispensed_meds
   get "/dispensed_meds/new/:ptid" => "dispensed_meds#new", :as => :new_dispensed_med_with_parameter
@@ -30,6 +36,8 @@ Rails.application.routes.draw do
   resources :prescriptions
 
   resources :patients
+  
+  resources :activities
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

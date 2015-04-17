@@ -14,19 +14,19 @@
       <% end %>
     
       <div class="field">
-        <%= f.label :phid %><br>
-        <%= f.number_field :phid, class: 'form-control' %>
+        <%= f.label "Pharmaceutical Manufacturer ID" %><br>
+        <%= f.number_field :phid, class: 'form-control', :readonly => true %>
       </div>
       <div class="field">
-        <%= f.label :manufacturer %><br>
+        <%= f.label "Pharmaceutical Manufacturer" %><br>
         <%= f.text_field :manufacturer, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :minincome %><br>
+        <%= f.label "Minimum Income" %><br>
         <%= f.text_field :minincome, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :monthsreorder %><br>
+        <%= f.label "Months Reorder" %><br>
         <%= f.text_field :monthsreorder, class: 'form-control' %>
       </div>
       <div class="actions">

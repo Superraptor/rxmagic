@@ -23,8 +23,14 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
   <![endif]-->
+  
+  <% if @redirect_url %>
+    <meta http-equiv='refresh' content='<%= @redirect_delay -%>;url=<%= @redirect_url -%>'>
+  <% end %>
+  
 </head>
 <body>
+  
   <header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -34,13 +40,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "RxMagic", '#', id: "logo" %>
+        <%= link_to "RxMagic", root_url, id: "logo" %>
       </div>
       
       <!-- FIX THIS...NAVBAR DOES NOT COLLAPSE BACK -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="home">Home</a></li>
+          <li><%= link_to "Home", root_url %></li>
           <li><a href="help">Help</a></li>
           <li><a href="login">Login</a></li>
         </ul>
@@ -49,7 +55,11 @@
   </header>
 
   <div class="container">
-    <%= yield %>
+    <div class="col-sm-9">
+      <%= yield %>
+    </div>
+    <br>
+    <%= render 'shared/activities' %>
   </div>
   
   <footer class="footer">
@@ -66,5 +76,30 @@
       </ul>
     </nav>
   </footer>
+  
+  <!-- I think I can improve this script... perhaps with SimplyScroll... -->
+  <script>
+  //   function tick(){
+  //     $('#activity_feed li:first').animate({'opacity':0}, 800, function () {
+  //     $(this).appendTo($('#activity_feed')).css('opacity', 1); });
+  //   }
+  //   setInterval(function(){ tick () }, 10000);
+  </script>
+  
+  <!-- Currently this doesn't work and that's really sad... -->
+  <script type="text/javascript">
+    (function($) {
+    	$(function() { //on DOM ready
+    		$("#scroller").simplyScroll({
+    			customClass: 'vert',
+    			orientation: 'vertical',
+                auto: false,
+                manualMode: 'loop',
+    			frameRate: 20,
+    			speed: 5
+    		});
+    	});
+    })(jQuery);
+  </script>
 </body>
 </html>

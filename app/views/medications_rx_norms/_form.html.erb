@@ -14,20 +14,20 @@
       <% end %>
     
       <div class="field">
-        <%= f.label :ndc %><br>
-        <%= f.text_field :ndc, class: 'form-control' %>
+        <%= f.label "RxNorm NDC" %><br>
+        <%= f.text_field :ndc, class: 'form-control', :placeholder => "Enter only if Medication Name is unavailable." %>
       </div>
       <div class="field">
-        <%= f.label :medname %><br>
-        <%= f.text_field :medname, class: 'form-control' %>
+        <%= f.label "Medication Name" %><br>
+        <%= f.text_field :medname, class: 'form-control', :placeholder => "Enter only if Rx NDC is unavailable." %>
       </div>
       <div class="field">
-        <%= f.label :minstock %><br>
+        <%= f.label "Minimum Stock" %><br>
         <%= f.text_field :minstock, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :pharmmanufacturersphid %><br>
-        <%= f.number_field :pharmmanufacturersphid, class: 'form-control' %>
+        <%= f.label "Pharmaceutical Manufacturer ID" %><br>
+        <%= collection_select(:medications_rx_norm, :pharmmanufacturersphid, PharmManufacturer.all, :phid, :manufacturer) %>
       </div>
       <div class="actions">
         <%= f.submit "Create Medication Rx Norm", class: "btn btn-primary" %>

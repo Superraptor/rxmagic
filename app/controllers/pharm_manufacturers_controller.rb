@@ -15,6 +15,7 @@ class PharmManufacturersController < ApplicationController
   # GET /pharm_manufacturers/new
   def new
     @pharm_manufacturer = PharmManufacturer.new
+    @pharm_manufacturer.phid = PharmManufacturer.maximum(:phid).to_i.next
   end
 
   # GET /pharm_manufacturers/1/edit

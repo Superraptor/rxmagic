@@ -15088,6 +15088,35 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
+.rowitem {
+  height: 100px;
+  padding: 5px;
+  vertical-align: middle;
+}
+.rowitem a {
+  line-height: 75px;
+  display: block;
+  vertical-align: middle;
+}
+.rowitem .rowlink {
+  line-height: 75px;
+  display: block;
+  vertical-align: middle;
+  color: #fff;
+}
+
+#scroller {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.text_area {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
 
 /* line 21, /home/ubuntu/workspace/greetings/app/assets/stylesheets/scaffolds.scss */
 a {
@@ -15095,7 +15124,6 @@ a {
 }
 /* line 23, /home/ubuntu/workspace/greetings/app/assets/stylesheets/scaffolds.scss */
 a:visited {
-  color: #666;
 }
 /* line 26, /home/ubuntu/workspace/greetings/app/assets/stylesheets/scaffolds.scss */
 a:hover {

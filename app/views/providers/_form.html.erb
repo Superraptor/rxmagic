@@ -14,15 +14,15 @@
       <% end %>
     
       <div class="field">
-        <%= f.label :drid %><br>
-        <%= f.number_field :drid, class: 'form-control' %>
+        <%= f.label "Doctor ID" %><br>
+        <%= f.number_field :drid, class: 'form-control', :readonly => true %>
       </div>
       <div class="field">
-        <%= f.label :firstname %><br>
+        <%= f.label "First Name" %><br>
         <%= f.text_field :firstname, class: 'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :lastname %><br>
+        <%= f.label "Last Name" %><br>
         <%= f.text_field :lastname, class: 'form-control' %>
       </div>
       <div class="actions">
