@@ -1,7 +1,9 @@
-== INTRODUCTION
+# INTRODUCTION
+
 Welcome to RxMagic! A basic web application meant to act as an inventory interface for pharmaceuticals.
 
-== CURRENT ISSUES
+# CURRENT ISSUES
+
 * Changing "png" back to "pdf"
 ** Most of the code is already there, but just in case a guide is here: https://github.com/shairontoledo/rghost/wiki/Converting-PDF-into-other-formats
 
