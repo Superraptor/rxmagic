@@ -15,3 +15,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore all configuration files 
+
+*.yml
+.idea/*
+.ruby-version
+*.lock
+*.schema.rb
+*~

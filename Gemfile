@@ -6,7 +6,7 @@ gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', github: 'rails/sass-rails'
+#gem 'sass-rails', github: 'rails/sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 2.5.3'
 # Use CoffeeScript for .coffee assets and views
@@ -58,6 +58,7 @@ gem 'rghost_barcode'
 
 gem 'paloma'
 
+gem 'mysql'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -81,6 +82,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg', '0.17.1'
+  #gem 'pg', '0.17.1'
   gem 'rails_12factor', '0.0.2'
 end

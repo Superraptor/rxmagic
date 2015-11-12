@@ -1,8 +1,8 @@
 class CreatePrescriptionProviders < ActiveRecord::Migration
   def change
     create_table :prescription_providers do |t|
-      t.prescription_id :integer
-      t.provider_id :integer
+      t.integer :prescription_id
+      t.integer :provider_id
 
       t.timestamps null: false
     end
